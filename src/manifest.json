@@ -1,6 +1,6 @@
 {
-    "name": "angulargdg",
-    "short_name": "angulargdg",
+    "name": "MarvelApp",
+    "short_name": "MarvelApp",
     "theme_color": "#222222",
     "background_color": "#222222",
     "display": "standalone",

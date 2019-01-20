@@ -7,7 +7,7 @@ import { SwUpdate, UpdateAvailableEvent } from '@angular/service-worker';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    title = 'angulargdg';
+    title = 'MarvelApp';
     constructor(
         private swUpdate: SwUpdate,
     ) {
