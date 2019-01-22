@@ -1,0 +1,27 @@
+@import '../../../css/helpers';
+.navbar__title {
+	@extend %nowrap;
+
+	display: flex;
+	flex: 1;
+	&.navbar__title--unsaved {
+		font-weight: bold;
+		font-style: italic;
+		&:after {
+			font-weight: bold;
+
+			display: inline;
+
+			margin-left: 5px;
+
+			content: ' *';
+
+			color: red;
+		}
+	}
+}
+// .navbar__map--unsaved {
+// 	font-weight: bold;
+
+// 	margin-right: 10px;
+// }

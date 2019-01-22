@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { SwUpdate, UpdateAvailableEvent } from '@angular/service-worker';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
     title = 'MarvelApp';
@@ -13,8 +12,8 @@ export class AppComponent {
     ) {
         if (this.swUpdate.isEnabled) {
             swUpdate.checkForUpdate();
-            this.swUpdate.available.subscribe((event: UpdateAvailableEvent) => {
-                if (confirm(`Do you want to update?`)) {
+            this.swUpdate.available.subscribe(() => {
+                if (confirm(`Do you want to update ${this.title}?`)) {
                     window.location.reload();
                 }
             });

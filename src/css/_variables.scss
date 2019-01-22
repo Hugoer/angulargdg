@@ -1,0 +1,14 @@
+@import '_theming.scss';
+@include angular-material-theme($gdg-app-theme);
+$gdg-primary: mat-color(map-get($gdg-app-theme, primary));
+$gdg-primary-contrast: mat-contrast(map-get($gdg-app-theme, primary),500);
+$gdg-secondary: mat-color(map-get($gdg-app-theme, accent));
+$gdg-secondary-contrast: mat-contrast(map-get($gdg-app-theme, accent),500);
+$gdg-warn: mat-color(map-get($gdg-app-theme, warn));
+$gdg-warn-contrast: mat-contrast(map-get($gdg-app-theme, warn),500);
+$gdg-menu-collapsed: 550px;
+$layer__width-side: 300px;
+$layer__bottom-height: 250px;
+$tool__bottom-height: 700px;
+// Tiempo de apertura del panel
+$panel-transition: .3s;

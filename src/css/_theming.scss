@@ -1,0 +1,78 @@
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$NEGRO: (
+    50: #E0E0E0,
+    100: #B3B3B3,
+    200: #808080,
+    300: #4D4D4D,
+    400: #262626,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #A6A6A6,
+    A200: #8C8C8C,
+    A400: #737373,
+    A700: #666666,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #FFFFFF,
+        400 : #FFFFFF,
+        500 : #FFFFFF,
+        600 : #FFFFFF,
+        700 : #FFFFFF,
+        800 : #FFFFFF,
+        900 : #FFFFFF,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #FFFFFF,
+        A700 : #FFFFFF,
+    )
+);
+$AZUL: (
+    50: #E2E9F3,
+    100: #B6C8E1,
+    200: #86A4CE,
+    300: #5580BA,
+    400: #3064AB,
+    500: #0C499C,
+    600: #0A4294,
+    700: #08398A,
+    800: #063180,
+    900: #03216E,
+    A100: #9DB2FF,
+    A200: #6A8AFF,
+    A400: #3761FF,
+    A700: #1E4DFF,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #FFFFFF,
+        400 : #FFFFFF,
+        500 : #FFFFFF,
+        600 : #FFFFFF,
+        700 : #FFFFFF,
+        800 : #FFFFFF,
+        900 : #FFFFFF,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #FFFFFF,
+        A700 : #FFFFFF,
+    )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://www.google.com/design/spec/style/color.html
+$gdg-app-primary: mat-palette($AZUL);
+$gdg-app-accent: mat-palette($NEGRO);
+
+// The warn palette is optional (defaults to red).
+$gdg-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$gdg-app-theme: mat-light-theme($gdg-app-primary, $gdg-app-accent, $gdg-app-warn);

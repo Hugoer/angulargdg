@@ -1,0 +1,68 @@
+<mat-list class="wg__side-menu">
+    <div class="wg__side-login">
+        <img class="user__icon" [attr.src]="'./assets/logo.png'" alt="" width="75" height="97">
+    </div>
+
+    <h3 mat-subheader>{{'main.user'| translate}}</h3>
+
+    <mat-list-item class="wg__item">
+        <mat-icon mat-list-icon>perm_identity</mat-icon>
+        <span mat-line>{{ (user | async)?.firstName }}</span>
+    </mat-list-item>
+
+    <mat-divider class="wg__side-divider"></mat-divider>
+
+    <a [routerLink]="['/']">
+        <mat-list-item appWebgisClosemenu class="wg__item" [ngClass]="{'wg__item--active' : (url === '/')}">
+            <mat-icon mat-list-icon>layers</mat-icon>
+            <span mat-line>{{main.index}}</span>
+        </mat-list-item>
+    </a>
+
+    <ng-container *ngIf="userAdmin">
+
+        <mat-divider class="wg__side-divider"></mat-divider>
+
+        <h3 mat-subheader>{{'main.administration'| translate}}</h3>
+
+        <a [routerLink]="['/admin/role']">
+            <mat-list-item appWebgisClosemenu class="wg__item" [ngClass]="{'wg__item--active' : (url.substr(0,11) === '/admin/role')}">
+                <mat-icon mat-list-icon>person</mat-icon>
+                <span mat-line>{{'webgisApp.role.home.title' | translate}}</span>
+            </mat-list-item>
+        </a>
+
+        <a [routerLink]="['/admin/group']">
+            <mat-list-item appWebgisClosemenu class="wg__item" [ngClass]="{'wg__item--active' : (url.substr(0,12) === '/admin/group')}">
+                <mat-icon mat-list-icon>people</mat-icon>
+                <span mat-line>{{'webgisApp.group.home.title' | translate}}</span>
+            </mat-list-item>
+        </a>
+
+        <a [routerLink]="['/admin/panel']">
+            <mat-list-item appWebgisClosemenu class="wg__item" [ngClass]="{'wg__item--active' : (url.substr(0,12) === '/admin/panel')}">
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+                <span mat-line>{{'panel.home.title' | translate}}</span>
+            </mat-list-item>
+        </a>
+
+        <a [routerLink]="['/admin/marker-type']">
+            <mat-list-item appWebgisClosemenu class="wg__item" [ngClass]="{'wg__item--active' : (url.substr(0,18) === '/admin/marker-type')}">
+                <mat-icon mat-list-icon>room</mat-icon>
+                <span mat-line>{{'webgisApp.markerType.home.title' | translate}}</span>
+            </mat-list-item>
+        </a>
+
+    </ng-container>
+
+    <mat-divider class="wg__side-divider"></mat-divider>
+
+    <div class="item__bottom">
+        <mat-list-item class="wg__item" (click)="signOut()">
+            <mat-icon mat-list-icon>power_settings_new</mat-icon>
+
+            <span mat-line>{{main.signOut}}</span>
+        </mat-list-item>
+    </div>
+
+</mat-list>

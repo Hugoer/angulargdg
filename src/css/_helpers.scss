@@ -1,0 +1,12 @@
+%nowrap {
+	overflow: hidden;
+
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.fullwidth {
+	flex: 1;
+
+	width: 100%;
+}
