@@ -9,17 +9,18 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { WebgisLanguageService } from './language.service';
-import { WebgisMissingTranslationHandler } from './missing-translation';
-import { WebgisTitleService } from './language.helper';
+import { AppLanguageService } from './language.service';
+import { AppMissingTranslationHandler } from './missing-translation';
+import { AppTitleService } from './language.helper';
 import { LocalStorageService } from 'ngx-webstorage';
+import { environment } from '@environment/environment';
 
 export function translatePartialLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, 'i18n/', '.json');
 }
 
 export function missingTranslationHandler() {
-    return new WebgisMissingTranslationHandler();
+    return new AppMissingTranslationHandler();
 }
 
 @NgModule({
@@ -43,9 +44,9 @@ export function missingTranslationHandler() {
         TranslateModule,
     ],
     providers: [
-        WebgisLanguageService,
-        WebgisMissingTranslationHandler,
-        WebgisTitleService,
+        AppLanguageService,
+        AppMissingTranslationHandler,
+        AppTitleService,
     ]
 })
 export class LanguageModule {
@@ -56,6 +57,8 @@ export class LanguageModule {
         const languageStorage = this.localStorage.retrieve('userLanguage');
         if (!!languageStorage) {
             this.translate.use(languageStorage);
+        } else {
+            this.translate.use(environment.defaultI18nLang);
         }
     }
 }

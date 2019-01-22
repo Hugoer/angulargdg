@@ -12,6 +12,7 @@ import {
 
 import { SharedModule } from '@app/shared/shared.module';
 import { ConfirmDialogComponent } from './confirm/confirm.component';
+import { HeroeVillainComponent } from './heroe-villain/heroe-villain.component';
 
 const MATERIAL_COMPONENTS_MODULES = [
     MatListModule,
@@ -31,14 +32,17 @@ const MATERIAL_COMPONENTS_MODULES = [
     ],
     declarations: [
         ConfirmDialogComponent,
+        HeroeVillainComponent,
     ],
     entryComponents: [
         ConfirmDialogComponent,
+        HeroeVillainComponent,
     ],
     exports: [
         MATERIAL_COMPONENTS_MODULES,
         SharedModule,
         ConfirmDialogComponent,
+        HeroeVillainComponent,
     ]
 })
 export class ComponentsModule { }

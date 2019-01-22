@@ -1,6 +1,6 @@
 import { MissingTranslationHandler, MissingTranslationHandlerParams } from '@ngx-translate/core';
 
-export class WebgisMissingTranslationHandler implements MissingTranslationHandler {
+export class AppMissingTranslationHandler implements MissingTranslationHandler {
 
     constructor() { }
 

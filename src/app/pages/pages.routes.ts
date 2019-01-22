@@ -8,7 +8,7 @@ const routes: Routes = [
         component: TournamentComponent,
         data: {
             showNavbarMenu: true,
-            pageTitle: 'main.index'
+            pageTitle: 'tournament.title'
         }
     },
     {
@@ -16,7 +16,7 @@ const routes: Routes = [
         component: TournamentComponent,
         data: {
             showNavbarMenu: true,
-            pageTitle: 'main.index'
+            pageTitle: 'tournament.title'
         }
     }
 ];

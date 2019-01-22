@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '@environment/environment';
 
 import { IUser } from '@app/core/user.model';
-import { WebgisLanguageService } from './language/language.service';
+import { AppLanguageService } from './language/language.service';
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class UserService {
 
     constructor(
         private http: HttpClient,
-        private languageService: WebgisLanguageService,
+        private languageService: AppLanguageService,
         private localStorage: LocalStorageService,
     ) {
     }

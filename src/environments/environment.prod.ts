@@ -5,5 +5,6 @@ export const environment = {
         verticalPosition: 'top',
         horizontalPosition: 'right'
     },
-    defaultI18nLang: 'gl'
+    defaultI18nLang: 'gl',
+    enableTracing: false
 };

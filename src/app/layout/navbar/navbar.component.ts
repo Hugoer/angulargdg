@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { GDGState } from '@app/redux/global.reducer';
 import { appEventManager } from '@app/core/handlers/eventmanager.service';
 
-import { WebgisTitleService } from '@app/core/language/language.helper';
+import { AppTitleService } from '@app/core/language/language.helper';
 import { NavbarService } from './navbar.service';
 import { EnumMapActions } from '@app/pages/tournament/tournament.model';
 
@@ -111,7 +111,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         private eventManager: appEventManager,
         private router: Router,
         private translateService: TranslateService,
-        private titleService: WebgisTitleService,
+        private titleService: AppTitleService,
         private navbarService: NavbarService,
     ) {
 
@@ -143,7 +143,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     private observeMapState() {
 
-        this.obsMapIsDirty = this.store.select('webgis', 'map', 'isDirty')
+        this.obsMapIsDirty = this.store.select('gdg', 'map', 'isDirty')
             .subscribe((isDirty: boolean) => {
                 this.showMapDirty = isDirty;
                 this.actions.find((action) => {

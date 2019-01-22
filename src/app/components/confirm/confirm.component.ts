@@ -21,11 +21,11 @@ export class ConfirmDialogComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
     ) {
         this.translateService.get([
-            'webgis.ok',
-            'webgis.cancel',
+            'angulargdg.ok',
+            'angulargdg.cancel',
         ]).toPromise().then((translation) => {
-            this.confirm.cancel = translation['webgis.cancel'];
-            this.confirm.ok = translation['webgis.ok'];
+            this.confirm.cancel = translation['angulargdg.cancel'];
+            this.confirm.ok = translation['angulargdg.ok'];
         });
     }
 

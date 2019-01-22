@@ -74,36 +74,36 @@ export class MainInterceptor implements HttpInterceptor {
     private processStatus(statusCode: number, err?: any) {
         switch (true) {
             case (statusCode === -1):
-                this.showNotification(this.translateService.instant('webgis.http.json'), ToastType.primary);
+                this.showNotification(this.translateService.instant('angulargdg.http.json'), ToastType.primary);
                 break;
             case (statusCode === 200):
                 break;
             case (statusCode === 201):
-                this.showNotification(this.translateService.instant('webgis.http.201'), ToastType.primary);
+                this.showNotification(this.translateService.instant('angulargdg.http.201'), ToastType.primary);
                 break;
             case (statusCode === 204):
-                this.showNotification(this.translateService.instant('webgis.http.204'), ToastType.primary);
+                this.showNotification(this.translateService.instant('angulargdg.http.204'), ToastType.primary);
                 break;
             case (statusCode === 400):
-                this.showNotification(this.translateService.instant('webgis.http.400'), ToastType.warn);
+                this.showNotification(this.translateService.instant('angulargdg.http.400'), ToastType.warn);
                 break;
             case (statusCode === 403):
-                this.showNotification(this.translateService.instant('webgis.http.403'), ToastType.warn);
+                this.showNotification(this.translateService.instant('angulargdg.http.403'), ToastType.warn);
                 break;
             case (statusCode === 401):
-                this.showNotification(this.translateService.instant('webgis.http.401'), ToastType.warn);
+                this.showNotification(this.translateService.instant('angulargdg.http.401'), ToastType.warn);
                 break;
             case (statusCode === 404):
-                this.showNotification(this.translateService.instant('webgis.http.404'), ToastType.warn);
+                this.showNotification(this.translateService.instant('angulargdg.http.404'), ToastType.warn);
                 break;
             case (statusCode === 409):
-                this.showNotification(this.translateService.instant('webgis.http.409'), ToastType.warn, err.error.detail);
+                this.showNotification(this.translateService.instant('angulargdg.http.409'), ToastType.warn, err.error.detail);
                 break;
             case (statusCode < 600 && statusCode >= 500):
-                this.showNotification(this.translateService.instant('webgis.http.500'), ToastType.warn, err.error.detail);
+                this.showNotification(this.translateService.instant('angulargdg.http.500'), ToastType.warn, err.error.detail);
                 break;
             default:
-                this.showNotification(this.translateService.instant('webgis.http.defaulterror'), ToastType.warn);
+                this.showNotification(this.translateService.instant('angulargdg.http.defaulterror'), ToastType.warn);
                 break;
         }
     }

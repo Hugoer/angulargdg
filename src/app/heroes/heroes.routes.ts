@@ -15,7 +15,7 @@ const routes: Routes = [
                 path: 'list',
                 component: HeroeListComponent,
                 data: {
-                    pageTitle: 'global.menu.admin.main'
+                    pageTitle: 'tournament.title'
                 }
             }
         ]

@@ -1,0 +1,29 @@
+{
+    "angulargdg": {
+        "title": "Benvido a 'Marvel Tournament App'",
+        "yes": "sí",
+        "no": "No",
+        "ok": "Aceptar",
+        "cancel": "Cancelar",
+        "http": {
+            "201": "Recurso xerado",
+            "204": "Non se atoparon resultados",
+            "400": "Produciuse un problema cos filtros aplicados. Se continúa, póñase en contacto co administrador.",
+            "403": "Non tes permisos suficientes para acceder a este recurso.",
+            "401": "Non está autenticado.",
+            "404": "Non existe o recurso. Póngase en contacto co seu administrador.",
+            "409": "Este recurso está referenciado a outro recurso. Non poderá ser eliminado",
+            "500": "Producíuse un erro interno",
+            "defaulterror": "Producíuse un erro inesperado",
+            "json": "Produciuse un erro co tipo de datos devolto polo servidor. Póñase en contacto co administrador."
+        }
+    },
+    "global": {
+        "menu": {
+            "heroe": {
+                "title": "Heroes",
+                "tournament": "Torneo"
+            }
+        }
+    }
+}

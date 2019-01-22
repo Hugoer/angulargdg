@@ -1,4 +1,5 @@
 @import './css/theming';
+@import './css/variables';
 
 body {
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
@@ -8,13 +9,13 @@ body {
 }
 
 
-.wg__margin {
+.gdg__margin {
 	display: flex;
 
 	min-height: calc(100vh - 64px);
 }
 
-.wg__margin router-outlet + *:not(app-main) {
+.gdg__margin router-outlet + *:not(app-main) {
 	display: block;
 
 	padding: 15px;

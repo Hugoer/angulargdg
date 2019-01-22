@@ -1,6 +1,6 @@
 @import '../../../css/variables';
 
-.wg__side-menu {
+.gdg__side-menu {
 	display: flex;
 	flex-direction: column;
 
@@ -16,7 +16,7 @@
 		flex: 1;
 
 		// align-items: flex-end;
-		.wg__item:hover {
+		.gdg__item:hover {
 			cursor: pointer;
 		}
 	}
@@ -27,7 +27,7 @@
 		}
 	}
 	h3.mat-subheader,
-	.wg__item {
+	.gdg__item {
 		color: white;
 		background-color: $gdg-secondary;
 	}
@@ -35,17 +35,17 @@
 		margin-top: 15px;
 		margin-bottom: 15px;
 	}
-	.wg__item--active {
+	.gdg__item--active {
 		text-transform: uppercase;
 
 		background-color: $gdg-primary;
 	}
-	.wg__side-divider {
+	.gdg__side-divider {
 		background-color: white;
 	}
 }
 
-.wg__side-login {
+.gdg__side-login {
 	display: block;
 
 	margin: 0 auto;

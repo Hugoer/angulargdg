@@ -27,16 +27,16 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
-                            "src/manifest.json"
+                            "src/manifest.json",
+                            "src/i18n"
                         ],
                         "styles": [
-                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                            "src/assets/fonts/material-icons.css",
                             "src/styles.scss"
                         ],
                         "scripts": [
                             "node_modules/moment/locale/es.js",
-                            "node_modules/moment/locale/gl.js",
-                            "node_modules/moment/locale/en-gb.js"
+                            "node_modules/moment/locale/gl.js"
                         ]
                     },
                     "configurations": {

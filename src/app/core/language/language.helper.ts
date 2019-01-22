@@ -4,7 +4,7 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
-export class WebgisTitleService {
+export class AppTitleService {
     rendererHtmlTag: Renderer2 = null;
     private actualTitle: string = null;
 

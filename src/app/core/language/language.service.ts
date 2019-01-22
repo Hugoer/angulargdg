@@ -6,7 +6,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 @Injectable({
     providedIn: 'root'
 })
-export class WebgisLanguageService {
+export class AppLanguageService {
 
     constructor(
         private translateService: TranslateService,

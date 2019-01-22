@@ -3,10 +3,9 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve --open",
-        "build": "ng build",
-        "build:prod": "ng build --prod --aot --build-optimizer  --extra-webpack-config webpack.extra.js",
-        "build:prod:stats": "ng build --prod --aot --build-optimizer  --stats-json  --extra-webpack-config webpack.extra.js",
+        "start": "gulp i18n &&  ng serve --open",
+        "build:prod": "gulp i18n && ng build --prod --aot --build-optimizer  --extra-webpack-config webpack.extra.js",
+        "build:prod:stats": "gulp i18n && ng build --prod --aot --build-optimizer  --stats-json  --extra-webpack-config webpack.extra.js",
         "bundle-report": "npm run build:prod:stats && webpack-bundle-analyzer dist/angulargdg/stats.json",
         "test": "ng test",
         "lint": "ng lint",
