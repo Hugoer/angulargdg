@@ -8,7 +8,6 @@ import { GDGState } from '@app/redux/global.reducer';
 import { appEventManager } from '@app/core/handlers/eventmanager.service';
 
 import { AppTitleService } from '@app/core/language/language.helper';
-import { NavbarService } from './navbar.service';
 import { EnumMapActions } from '@app/pages/tournament/tournament.model';
 
 export interface IAction {
@@ -43,60 +42,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
             visible: true
         },
         {
-            action: EnumMapActions.EDIT,
-            icon: 'edit',
-            name: 'edit',
-            enabled: true,
-            visible: true
-        },
-        {
             action: EnumMapActions.SAVE,
             icon: 'save',
             name: 'save',
-            enabled: true,
-            visible: true
-        },
-        {
-            action: EnumMapActions.SAVE_AS,
-            icon: 'save_alt',
-            name: 'saveas',
-            enabled: true,
-            visible: true
-        },
-        {
-            action: EnumMapActions.RESET,
-            icon: 'autorenew',
-            name: 'reset',
-            enabled: true,
-            visible: true
-        },
-        {
-            action: EnumMapActions.DELETE,
-            icon: 'delete_forever',
-            name: 'delete',
-            enabled: true,
-            visible: true
-        },
-        {
-            action: EnumMapActions.PUBLISH,
-            icon: 'group_add',
-            name: 'publish',
-            enabled: true,
-            visible: true
-        },
-        {
-            action: EnumMapActions.EXPORT_AS_JSON,
-            icon: 'save_alt',
-            name: 'exportjson',
             enabled: true,
             visible: true
         }
     ];
 
     showMenu = false;
-    showSelectIcon = false;
-    // showSelectIconEnabled = false;
-    showMapDirty = false;
+    showTournamentDirty = false;
 
     unSavedTooltip: string = null;
 
@@ -112,7 +67,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         private router: Router,
         private translateService: TranslateService,
         private titleService: AppTitleService,
-        private navbarService: NavbarService,
     ) {
 
         this.titleService.updateOnRouting();
@@ -143,15 +97,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     private observeMapState() {
 
-        this.obsMapIsDirty = this.store.select('gdg', 'map', 'isDirty')
-            .subscribe((isDirty: boolean) => {
-                this.showMapDirty = isDirty;
-                this.actions.find((action) => {
-                    return (action.action === EnumMapActions.RESET);
-                }).enabled = isDirty;
-                this.unSavedTooltip = this.showMapDirty ? this.translateService.instant('map.dirtyadvice') : null;
-                this.cd.markForCheck();
-            });
+        // this.obsMapIsDirty = this.store.select('gdg', 'tournaments', 'isDirty')
+        //     .subscribe((isDirty: boolean) => {
+        //         this.showTournamentDirty = isDirty;
+        //         this.actions.find((action) => {
+        //             return (action.action === EnumMapActions.RESET);
+        //         }).enabled = isDirty;
+        //         this.unSavedTooltip = this.showTournamentDirty ? this.translateService.instant('tournament.dirtyadvice') : null;
+        //         this.cd.markForCheck();
+        //     });
 
     }
 
@@ -167,7 +121,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         const route = this.getRouteObject(this.router.routerState.snapshot.root);
         if (!!route && !!route.data) {
             this.showMenu = !!route.data.showNavbarMenu;
-            this.showSelectIcon = !!route.data.showNavbarSelectIcon;
             // this.showSelectIconEnabled = false; // Por defecto, al cargar una ruta nueva, no permitimos mover objetos
             this.cd.markForCheck();
             switch (true) {
@@ -176,29 +129,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
                     this.actions.find((action) => {
                         return (action.action === EnumMapActions.NEW);
                     }).enabled = false;
-                    this.actions.find((action) => {
-                        return (action.action === EnumMapActions.EDIT);
-                    }).enabled = false;
-                    this.actions.find((action) => {
-                        return (action.action === EnumMapActions.DELETE);
-                    }).enabled = false;
-                    this.actions.find((action) => {
-                        return (action.action === EnumMapActions.PUBLISH);
-                    }).enabled = false;
                     break;
                 // Cargamos un mapa concreto
                 case (!!route.url[0] && route.url[0].path === 'map'):
                     this.actions.find((action) => {
                         return (action.action === EnumMapActions.NEW);
-                    }).enabled = true;
-                    this.actions.find((action) => {
-                        return (action.action === EnumMapActions.EDIT);
-                    }).enabled = true;
-                    this.actions.find((action) => {
-                        return (action.action === EnumMapActions.DELETE);
-                    }).enabled = true;
-                    this.actions.find((action) => {
-                        return (action.action === EnumMapActions.PUBLISH);
                     }).enabled = true;
                     break;
                 default:

@@ -23,33 +23,19 @@
 
         <mat-divider class="gdg__side-divider"></mat-divider>
 
-        <h3 mat-subheader>{{'main.administration'| translate}}</h3>
+        <h3 mat-subheader>{{'global.character'| translate}}</h3>
 
-        <a [routerLink]="['/admin/role']">
-            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,11) === '/admin/role')}">
+        <a [routerLink]="['/heroe']">
+            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,6) === '/heroe')}">
                 <mat-icon mat-list-icon>person</mat-icon>
-                <span mat-line>{{'webgisApp.role.home.title' | translate}}</span>
+                <span mat-line>{{'global.menu.heroe.title' | translate}}</span>
             </mat-list-item>
         </a>
 
-        <a [routerLink]="['/admin/group']">
-            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,12) === '/admin/group')}">
-                <mat-icon mat-list-icon>people</mat-icon>
-                <span mat-line>{{'webgisApp.group.home.title' | translate}}</span>
-            </mat-list-item>
-        </a>
-
-        <a [routerLink]="['/admin/panel']">
-            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,12) === '/admin/panel')}">
-                <mat-icon mat-list-icon>dashboard</mat-icon>
-                <span mat-line>{{'panel.home.title' | translate}}</span>
-            </mat-list-item>
-        </a>
-
-        <a [routerLink]="['/admin/marker-type']">
-            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,18) === '/admin/marker-type')}">
-                <mat-icon mat-list-icon>room</mat-icon>
-                <span mat-line>{{'webgisApp.markerType.home.title' | translate}}</span>
+        <a [routerLink]="['/villain']">
+            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,8) === '/villain')}">
+                <mat-icon mat-list-icon>person</mat-icon>
+                <span mat-line>{{'global.menu.villain.title' | translate}}</span>
             </mat-list-item>
         </a>
 

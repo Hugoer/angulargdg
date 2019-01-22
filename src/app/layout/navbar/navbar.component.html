@@ -2,17 +2,9 @@
     <button mat-icon-button (click)="openMenu()" class="menu__button">
         <mat-icon mat-list-icon>menu</mat-icon>
     </button>
-    <span class="navbar__title" [ngClass]="{'navbar__title--unsaved' : showMapDirty}" matTooltip="{{unSavedTooltip}}"
+    <span class="navbar__title" [ngClass]="{'navbar__title--unsaved' : showTournamentDirty}" matTooltip="{{unSavedTooltip}}"
         [matTooltipPosition]="'above'"></span>
 
-    <ng-container *ngIf="showSelectIcon">
-
-        <button mat-icon-button (click)="resetOrientation()">
-            <mat-icon matTooltip="{{'map.clearcompass' | translate}}" [matTooltipPosition]="'above'">
-                my_location
-            </mat-icon>
-        </button>
-    </ng-container>
     <ng-container *ngIf="showMenu">
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>more_vert</mat-icon>
@@ -21,7 +13,7 @@
             <ng-container *ngFor="let action of actions; trackBy: trackById">
                 <button *ngIf="action.visible" [disabled]="!action.enabled" mat-menu-item (click)="dispatchMapAction(action.action)">
                     <mat-icon>{{action.icon}}</mat-icon>
-                    <span>{{'map.' + action.name | translate}}</span>
+                    <span>{{'tournament.' + action.name | translate}}</span>
                 </button>
             </ng-container>
         </mat-menu>

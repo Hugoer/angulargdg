@@ -21,9 +21,15 @@
     "global": {
         "menu": {
             "heroe": {
-                "title": "Heroes",
-                "tournament": "Torneo"
+                "title": "Heroes"
+            },
+            "villain": {
+                "title": "Villanos"
+            },
+            "tournament": {
+                "title": "Torneo"
             }
-        }
+        },
+        "character": "Heroes / Villanos"
     }
 }

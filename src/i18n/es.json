@@ -23,10 +23,14 @@
 			"heroe": {
 				"title": "Héroes"
 			},
+			"villain": {
+				"title": "Villanos"
+			},
 			"tournament": {
 				"title": "Torneo"
 			}
-		}
+		},
+		"character": "Héroes / Villanos"
 	},
 	"main": {
 		"index": "Marvel App",
@@ -35,6 +39,10 @@
 		"user": "Usuario"
 	},
 	"tournament": {
-		"title": "Torneo"
+		"title": "Torneo",
+		"dirtyadvice": "El torneo tiene cambios pendientes de guardar",
+		"new": "Nuevo",
+		"load": "Abrir",
+		"save": "Guardar"
 	}
 }

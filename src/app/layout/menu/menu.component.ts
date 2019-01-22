@@ -20,13 +20,12 @@ export class MenuComponent implements OnInit {
     url = '';
     main = {
         'index': '',
-        'list': '',
         'signOut': '',
         'signOutQuestion': '',
     };
 
     user: Promise<IUser>;
-    userAdmin = false;
+    userAdmin = true;
 
     constructor(
         private translateService: TranslateService,
@@ -36,13 +35,11 @@ export class MenuComponent implements OnInit {
         private snackBar: MatSnackBar,
     ) {
         this.translateService.get([
-            'main.index',
-            'main.list',
+            'global.menu.tournament.title',
             'main.signOut',
             'main.signOutQuestion',
         ]).toPromise().then((translation) => {
-            this.main.index = translation['main.index'];
-            this.main.list = translation['main.list'];
+            this.main.index = translation['global.menu.tournament.title'];
             this.main.signOut = translation['main.signOut'];
             this.main.signOutQuestion = translation['main.signOutQuestion'];
         });

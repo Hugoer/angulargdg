@@ -3,10 +3,12 @@ import { TournamentActions, TournamentActionTypes } from './tournament.action';
 
 export interface TournamentState {
     tournaments: ITournament[];
+    isDirty: boolean;
 }
 
 const initialStatus: TournamentState = {
-    tournaments: []
+    tournaments: [],
+    isDirty: false
 };
 
 export function tournamentReducer(state = initialStatus, action: TournamentActions): TournamentState {

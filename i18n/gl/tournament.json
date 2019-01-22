@@ -1,5 +1,9 @@
 {
     "tournament": {
-        "title": "Torneo"
+        "title": "Torneo",
+        "dirtyadvice": "O torneo ten cambios pendentes de gardar",
+        "new": "Novo",
+        "load": "Abrir",
+        "save": "Gardar"
     }
 }

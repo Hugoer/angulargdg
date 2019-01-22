@@ -22,7 +22,6 @@ export class AppLanguageService {
             this.translateService.use(languageKey);
             moment.locale(languageKey);
         }
-
     }
 
     getCurrent(): string {

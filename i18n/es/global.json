@@ -23,9 +23,13 @@
             "heroe": {
                 "title": "Héroes"
             },
+            "villain": {
+                "title": "Villanos"
+            },
             "tournament": {
                 "title": "Torneo"
             }
-        }
+        },
+        "character": "Héroes / Villanos"
     }
 }

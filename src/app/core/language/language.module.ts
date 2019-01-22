@@ -15,6 +15,8 @@ import { AppTitleService } from './language.helper';
 import { LocalStorageService } from 'ngx-webstorage';
 import { environment } from '@environment/environment';
 
+import * as moment from 'moment';
+
 export function translatePartialLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, 'i18n/', '.json');
 }
@@ -60,5 +62,6 @@ export class LanguageModule {
         } else {
             this.translate.use(environment.defaultI18nLang);
         }
+        moment.locale(this.translate.currentLang);
     }
 }
