@@ -7,6 +7,7 @@
         "build:prod": "gulp i18n && ng build --prod --aot --build-optimizer  --extra-webpack-config webpack.extra.js",
         "build:prod:stats": "gulp i18n && ng build --prod --aot --build-optimizer  --stats-json  --extra-webpack-config webpack.extra.js",
         "bundle-report": "npm run build:prod:stats && webpack-bundle-analyzer dist/angulargdg/stats.json",
+        "deploy": "npm run build:prod && firebase deploy",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
