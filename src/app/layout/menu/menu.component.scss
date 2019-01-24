@@ -11,14 +11,8 @@
 
 	background-color: $gdg-secondary;
 
-	.item__bottom {
-		display: flex;
-		flex: 1;
-
-		// align-items: flex-end;
-		.gdg__item:hover {
-			cursor: pointer;
-		}
+	.gdg__item:hover {
+		cursor: pointer;
 	}
 	a {
 		text-decoration: none;

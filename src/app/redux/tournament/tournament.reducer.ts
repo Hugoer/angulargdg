@@ -1,5 +1,5 @@
 import { ITournament } from '@app/pages/tournament/tournament.model';
-import { TournamentActions, TournamentActionTypes } from './tournament.action';
+import { TournamentActions, TournamentActionTypes } from './tournament.actions';
 
 export interface TournamentState {
     tournaments: ITournament[];

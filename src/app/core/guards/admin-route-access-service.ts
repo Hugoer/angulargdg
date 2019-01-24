@@ -9,28 +9,28 @@ import {
 import { Observable } from 'rxjs';
 import { environment } from '@environment/environment';
 
-import { UserService } from '@app/core/user.service';
 import { IUser } from '@app/core/user.model';
 
 @Injectable()
 export class AdminRouteAccessService implements CanActivate, CanLoad {
 
     constructor(
-        private userService: UserService,
+        // private userService: UserService,
     ) {
     }
 
     private can(): Promise<boolean> {
         return new Promise((resolve, reject) => {
-            this.userService.getIdentity()
-                .then((user: IUser) => {
-                    const isAdmin = true;
-                    resolve(isAdmin);
-                })
-                .catch((err) => {
-                    console.error(err);
-                    reject(err);
-                });
+            resolve(true);
+            // this.userService.getIdentity()
+            //     .then((user: IUser) => {
+            //         const isAdmin = true;
+            //         resolve(isAdmin);
+            //     })
+            //     .catch((err) => {
+            //         console.error(err);
+            //         reject(err);
+            //     });
         });
     }
 

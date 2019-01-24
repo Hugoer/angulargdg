@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { HeroService } from './heroe.service';
 
 @Component({
     selector: 'heroe-villain',
@@ -8,9 +9,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HeroeVillainComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private heroService: HeroService,
+    ) { }
 
     ngOnInit() {
+        this.heroService.getHeroes().subscribe((heroes) => {
+            console.log(heroes);
+        });
     }
 
 }

@@ -3,12 +3,14 @@
         <img class="user__icon" [attr.src]="'./assets/logo.png'" alt="" width="75" height="75">
     </div>
 
-    <h3 mat-subheader>{{'main.user'| translate}}</h3>
+    <ng-container *ngIf="userLogged">
+        <h3 mat-subheader>{{'main.user'| translate}}</h3>
 
-    <mat-list-item class="gdg__item">
-        <mat-icon mat-list-icon>perm_identity</mat-icon>
-        <span mat-line>{{ (user | async)?.firstName }}</span>
-    </mat-list-item>
+        <mat-list-item class="gdg__item">
+            <mat-icon mat-list-icon>perm_identity</mat-icon>
+            <span mat-line>{{ (user | async)?.firstName }}</span>
+        </mat-list-item>
+    </ng-container>
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
@@ -43,12 +45,18 @@
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <div class="item__bottom">
-        <mat-list-item class="gdg__item" (click)="signOut()">
-            <mat-icon mat-list-icon>power_settings_new</mat-icon>
+    <mat-list-item class="gdg__item" (click)="signIn()">
+        <mat-icon mat-list-icon>power_settings_new</mat-icon>
 
-            <span mat-line>{{main.signOut}}</span>
-        </mat-list-item>
-    </div>
+        <span mat-line>{{main.signIn}}</span>
+    </mat-list-item>
+
+    <mat-divider class="gdg__side-divider"></mat-divider>
+
+    <mat-list-item class="gdg__item" (click)="signOut()">
+        <mat-icon mat-list-icon>power_settings_new</mat-icon>
+
+        <span mat-line>{{main.signOut}}</span>
+    </mat-list-item>
 
 </mat-list>

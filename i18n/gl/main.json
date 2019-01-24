@@ -2,6 +2,7 @@
     "main": {
         "index": "Marvel App",
         "signOut": "Pechar sesión",
+        "signIn": "Iniciar sesión",
         "signOutQuestion": "Vaise proceder a pechar a sesión ¿Está seguro?",
         "user": "Usuario"
     }

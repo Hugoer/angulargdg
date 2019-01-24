@@ -19,10 +19,6 @@ const enum ToastType {
     'accent'
 }
 
-interface IServerMessage {
-    alert: string;
-    param: number;
-}
 
 @Injectable()
 export class MainInterceptor implements HttpInterceptor {
@@ -111,7 +107,16 @@ export class MainInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler) {
 
         let dummyrequest: HttpRequest<any>;
+        // const idToken = this.authService.idToken;
+        // if (idToken) {
+        //     dummyrequest = req.clone({
+        //         setHeaders: {
+        //             'Authorization': `Bearer ${idToken}`
+        //         }
+        //     });
+        // } else {
         dummyrequest = req.clone({});
+        // }
 
         this.svsEventManager.broadcast({
             name: 'httpStart'

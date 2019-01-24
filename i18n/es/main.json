@@ -2,6 +2,7 @@
     "main": {
         "index": "Marvel App",
         "signOut": "Cerrar sesión",
+        "signIn": "Iniciar sesión",
         "signOutQuestion": "Se procederá a cerrar la sesión ¿Está seguro?",
         "user": "Usuario"
     }

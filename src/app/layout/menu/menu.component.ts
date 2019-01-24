@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { UserService } from '@app/core/user.service';
 import { Router, RouterEvent } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
+import {
+    MatSnackBar,
+    MatSnackBarVerticalPosition,
+    MatSnackBarHorizontalPosition
+} from '@angular/material';
 
 import { environment } from '@environment/environment';
 
@@ -21,15 +24,16 @@ export class MenuComponent implements OnInit {
     main = {
         'index': '',
         'signOut': '',
+        'signIn': '',
         'signOutQuestion': '',
     };
 
     user: Promise<IUser>;
     userAdmin = true;
+    userLogged = false;
 
     constructor(
         private translateService: TranslateService,
-        private userService: UserService,
         private router: Router,
         public dialog: MatDialog,
         private snackBar: MatSnackBar,
@@ -37,10 +41,12 @@ export class MenuComponent implements OnInit {
         this.translateService.get([
             'global.menu.tournament.title',
             'main.signOut',
+            'main.signIn',
             'main.signOutQuestion',
         ]).toPromise().then((translation) => {
             this.main.index = translation['global.menu.tournament.title'];
             this.main.signOut = translation['main.signOut'];
+            this.main.signIn = translation['main.signIn'];
             this.main.signOutQuestion = translation['main.signOutQuestion'];
         });
     }
@@ -52,12 +58,18 @@ export class MenuComponent implements OnInit {
                 this.url = this.router.url;
             }
         });
-        this.user = this.userService.getIdentity();
-        this.user
-            .then((user) => {
-                // this.userAdmin = user.authorities.includes(environment.roleAccessAdminModule);
-                this.userAdmin = true;
-            });
+        // this.user = this.userService.getProfile();
+        // this.user
+        //     .then((user) => {
+        //         // this.userAdmin = user.authorities.includes(environment.roleAccessAdminModule);
+        //         this.userAdmin = true;
+        //         this.userLogged = true;
+        //     });
+    }
+
+    signIn(): void {
+        // this.userService.login();
+        // this.authService.login();
     }
 
     signOut(): void {
@@ -71,17 +83,17 @@ export class MenuComponent implements OnInit {
             if (!!result) {
                 const _result = JSON.parse(result);
                 if (_result === true) {
-                    this.userService.logout()
-                        .then(() => {
-                            // window.location.href = '.';
-                        })
-                        .catch((err) => {
-                            this.snackBar.open(err, null, {
-                                duration: environment.toast.duration,
-                                verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
-                                horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
-                            });
-                        });
+                    // this.authService.logout(true);
+                    // .then(() => {
+                    //     // window.location.href = '.';
+                    // })
+                    // .catch((err) => {
+                    // this.snackBar.open(err, null, {
+                    //     duration: environment.toast.duration,
+                    //     verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
+                    //     horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
+                    // });
+                    // });
                 }
             }
         });

@@ -1,6 +1,6 @@
 @import '~@angular/material/_theming.scss';
 @include mat-core();
-$NEGRO: (
+$black: (
     50: #E0E0E0,
     100: #B3B3B3,
     200: #808080,
@@ -32,7 +32,39 @@ $NEGRO: (
         A700 : #FFFFFF,
     )
 );
-$AZUL: (
+$red: (
+    50: #FDE3E4,
+    100: #FBB9BC,
+    200: #F88A8F,
+    300: #F55B62,
+    400: #F23740,
+    500: #F0141E,
+    600: #EE121A,
+    700: #EC0E16,
+    800: #E90B12,
+    900: #E5060A,
+    A100: #FFFFFF,
+    A200: #FFDADA,
+    A400: #FFA7A7,
+    A700: #FF8D8E,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #FFFFFF,
+        400 : #FFFFFF,
+        500 : #FFFFFF,
+        600 : #FFFFFF,
+        700 : #FFFFFF,
+        800 : #FFFFFF,
+        900 : #FFFFFF,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #FFFFFF,
+        A700 : #FFFFFF,
+    )
+);
+$blue: (
     50: #E2E9F3,
     100: #B6C8E1,
     200: #86A4CE,
@@ -68,8 +100,8 @@ $AZUL: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
-$gdg-app-primary: mat-palette($AZUL);
-$gdg-app-accent: mat-palette($NEGRO);
+$gdg-app-primary: mat-palette($red);
+$gdg-app-accent: mat-palette($black);
 
 // The warn palette is optional (defaults to red).
 $gdg-app-warn: mat-palette($mat-red);
