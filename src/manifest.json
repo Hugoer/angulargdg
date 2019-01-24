@@ -1,6 +1,6 @@
 {
     "name": "MarvelApp",
-    "short_name": "Marvel Tournament",
+    "short_name": "MarvelApp",
     "theme_color": "#F0141E",
     "background_color": "#F0141E",
     "display": "standalone",
@@ -125,6 +125,11 @@
         {
             "src": "assets/icons/ms-icon-310x310.png",
             "sizes": "310x310",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icons/favicon-521x521.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ]

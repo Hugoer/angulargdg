@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button (click)="openMenu()" class="menu__button">
+    <button mat-icon-button (click)="openMenu()" class="menu__button" role="button" name="openmenu">
         <mat-icon mat-list-icon>menu</mat-icon>
     </button>
     <span class="navbar__title" [ngClass]="{'navbar__title--unsaved' : showTournamentDirty}" matTooltip="{{unSavedTooltip}}"

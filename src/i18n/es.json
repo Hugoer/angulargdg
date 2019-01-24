@@ -30,7 +30,11 @@
 				"title": "Torneo"
 			}
 		},
-		"character": "Héroes / Villanos"
+		"character": "Héroes / Villanos",
+		"dialog": {
+			"cancel": "Cerrar la pantalla modal para cancelar el proceso de cerrar sesión",
+			"accept": "Aceptar el proceso de cerrar sesión"
+		}
 	},
 	"main": {
 		"index": "Marvel App",
@@ -38,6 +42,11 @@
 		"signIn": "Iniciar sesión",
 		"signOutQuestion": "Se procederá a cerrar la sesión ¿Está seguro?",
 		"user": "Usuario"
+	},
+	"menu": {
+		"navbar": {
+			"open": "Abrir menú del campeonato"
+		}
 	},
 	"tournament": {
 		"title": "Torneo",

@@ -24,22 +24,32 @@ export class UserRouteAccessService implements CanLoad, CanActivate {
     ) {
     }
 
-    private can(): Promise<boolean> {
-        return new Promise<boolean>((resolve, reject) => {
-            this.afAuth.user.subscribe((user) => {
-                if (!!user) {
-                    resolve(true);
-                } else {
-                    this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
-                        duration: environment.toast.duration,
-                        verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
-                        horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
-                    });
-                    this.router.navigate[''];
-                    resolve(false);
-                }
-            });
-        });
+    private can(): Promise<boolean> | boolean {
+        this.router.navigate['home'];
+        return false;
+        // return new Promise<boolean>((resolve, reject) => {
+        // this.afAuth.user.subscribe((user) => {
+        //     if (!!user) {
+        //         resolve(true);
+        //     } else {
+        //         this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
+        //             duration: environment.toast.duration,
+        //             verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
+        //             horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
+        //         });
+        // this.router.navigate[''];
+        // reject(false);
+        //     }
+        // });
+        // });
+
+        // if(this.authService.isLoggedIn !== true) {
+        //     window.alert('Access Denied, Login is Required to Access This Page!')
+        //     this.router.navigate(['sign-in'])
+        //   }
+        //   return true;
+
+
     }
 
     canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {

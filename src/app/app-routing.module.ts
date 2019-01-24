@@ -11,11 +11,7 @@ const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
-        loadChildren: './pages/pages.module#PagesModule',
-        data: {
-            preload: true,
-            delay: false
-        }
+        loadChildren: './pages/pages.module#PagesModule'
     },
     {
         path: 'heroes',

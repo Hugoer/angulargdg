@@ -30,7 +30,11 @@
 				"title": "Torneo"
 			}
 		},
-		"character": "Heroes / Villanos"
+		"character": "Heroes / Villanos",
+		"dialog": {
+			"cancel": "Pechar a pantalla modal para cancelar o proceso de pechar sesión",
+			"accept": "Aceptar o proceso de pecchar sesión"
+		}
 	},
 	"main": {
 		"index": "Marvel App",
@@ -38,6 +42,11 @@
 		"signIn": "Iniciar sesión",
 		"signOutQuestion": "Vaise proceder a pechar a sesión ¿Está seguro?",
 		"user": "Usuario"
+	},
+	"menu": {
+		"navbar": {
+			"open": "Abrir o menú do campeonato"
+		}
 	},
 	"tournament": {
 		"title": "Torneo",

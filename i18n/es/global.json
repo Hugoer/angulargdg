@@ -30,6 +30,10 @@
                 "title": "Torneo"
             }
         },
-        "character": "Héroes / Villanos"
+        "character": "Héroes / Villanos",
+        "dialog": {
+            "cancel": "Cerrar la pantalla modal para cancelar el proceso de cerrar sesión",
+            "accept": "Aceptar el proceso de cerrar sesión"
+        }
     }
 }
