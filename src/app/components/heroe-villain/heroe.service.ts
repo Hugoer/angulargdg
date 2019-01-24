@@ -14,8 +14,10 @@ export class HeroService {
 
     }
 
-    getHeroes(): Observable<any> {
-        return this.http.get(`${environment.apiRestUrl}heroe`);
-    }
+    getHeroes() { }
+
+    // getHeroes(): Observable<any> {
+    //     // return this.http.get(`${environment.apiRestUrl}heroe`);
+    // }
 
 }

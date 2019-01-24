@@ -91,8 +91,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.obsMapIsDirty.unsubscribe();
-        this.obsMapOwner.unsubscribe();
+
     }
 
     private observeMapState() {

@@ -3,19 +3,19 @@
         <img class="user__icon" [attr.src]="'./assets/logo.png'" alt="" width="75" height="75">
     </div>
 
-    <ng-container *ngIf="userLogged">
+    <ng-container *ngIf="user | async;">
         <h3 mat-subheader>{{'main.user'| translate}}</h3>
 
         <mat-list-item class="gdg__item">
             <mat-icon mat-list-icon>perm_identity</mat-icon>
-            <span mat-line>{{ (user | async)?.firstName }}</span>
+            <span mat-line>{{ (user | async)?.displayName }}</span>
         </mat-list-item>
     </ng-container>
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <a [routerLink]="['/']">
-        <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url === '/')}">
+    <a [routerLink]="['/']" class="gdg__item" [routerLinkActive]="['gdg__item--active']" [routerLinkActiveOptions]="{exact: true}">
+        <mat-list-item appClosemenu>
             <mat-icon mat-list-icon>layers</mat-icon>
             <span mat-line>{{main.index}}</span>
         </mat-list-item>
@@ -27,15 +27,17 @@
 
         <h3 mat-subheader>{{'global.character'| translate}}</h3>
 
-        <a [routerLink]="['/heroe']">
-            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,6) === '/heroe')}">
+        <a [routerLink]="['/heroes']" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
+            [routerLinkActiveOptions]="{exact: true}">
+            <mat-list-item appClosemenu>
                 <mat-icon mat-list-icon>person</mat-icon>
                 <span mat-line>{{'global.menu.heroe.title' | translate}}</span>
             </mat-list-item>
         </a>
 
-        <a [routerLink]="['/villain']">
-            <mat-list-item appClosemenu class="gdg__item" [ngClass]="{'gdg__item--active' : (url.substr(0,8) === '/villain')}">
+        <a [routerLink]="['/villain']" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
+            [routerLinkActiveOptions]="{exact: true}">
+            <mat-list-item appClosemenu>
                 <mat-icon mat-list-icon>person</mat-icon>
                 <span mat-line>{{'global.menu.villain.title' | translate}}</span>
             </mat-list-item>
@@ -45,18 +47,21 @@
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <mat-list-item class="gdg__item" (click)="signIn()">
-        <mat-icon mat-list-icon>power_settings_new</mat-icon>
-
-        <span mat-line>{{main.signIn}}</span>
-    </mat-list-item>
-
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <mat-list-item class="gdg__item" (click)="signOut()">
+    <mat-list-item appClosemenu class="gdg__item" (click)="signOut()" *ngIf="user | async; else showLogin">
         <mat-icon mat-list-icon>power_settings_new</mat-icon>
 
         <span mat-line>{{main.signOut}}</span>
     </mat-list-item>
+
+    <ng-template #showLogin>
+
+        <mat-list-item appClosemenu class="gdg__item" (click)="signIn()">
+            <mat-icon mat-list-icon>power_settings_new</mat-icon>
+
+            <span mat-line>{{main.signIn}}</span>
+        </mat-list-item>
+    </ng-template>
 
 </mat-list>

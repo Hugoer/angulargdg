@@ -2,16 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, RouterEvent } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import {
-    MatSnackBar,
-    MatSnackBarVerticalPosition,
-    MatSnackBarHorizontalPosition
-} from '@angular/material';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
-import { environment } from '@environment/environment';
-
-import { IUser } from '@app/core/user.model';
 import { ConfirmDialogComponent } from '@app/components/confirm/confirm.component';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-menu',
@@ -28,7 +23,8 @@ export class MenuComponent implements OnInit {
         'signOutQuestion': '',
     };
 
-    user: Promise<IUser>;
+    user: Observable<firebase.User>;
+
     userAdmin = true;
     userLogged = false;
 
@@ -36,7 +32,7 @@ export class MenuComponent implements OnInit {
         private translateService: TranslateService,
         private router: Router,
         public dialog: MatDialog,
-        private snackBar: MatSnackBar,
+        private afAuth: AngularFireAuth,
     ) {
         this.translateService.get([
             'global.menu.tournament.title',
@@ -49,7 +45,13 @@ export class MenuComponent implements OnInit {
             this.main.signIn = translation['main.signIn'];
             this.main.signOutQuestion = translation['main.signOutQuestion'];
         });
+        this.user = this.afAuth.user;
+        this.user
+            .subscribe((user: firebase.User) => {
+                console.log(user);
+            });
     }
+
 
     ngOnInit() {
         this.url = this.router.url;
@@ -58,19 +60,12 @@ export class MenuComponent implements OnInit {
                 this.url = this.router.url;
             }
         });
-        // this.user = this.userService.getProfile();
-        // this.user
-        //     .then((user) => {
-        //         // this.userAdmin = user.authorities.includes(environment.roleAccessAdminModule);
-        //         this.userAdmin = true;
-        //         this.userLogged = true;
-        //     });
     }
 
-    signIn(): void {
-        // this.userService.login();
-        // this.authService.login();
+    signIn() {
+        this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     }
+
 
     signOut(): void {
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -81,20 +76,7 @@ export class MenuComponent implements OnInit {
         });
         dialogRef.afterClosed().subscribe((result) => {
             if (!!result) {
-                const _result = JSON.parse(result);
-                if (_result === true) {
-                    // this.authService.logout(true);
-                    // .then(() => {
-                    //     // window.location.href = '.';
-                    // })
-                    // .catch((err) => {
-                    // this.snackBar.open(err, null, {
-                    //     duration: environment.toast.duration,
-                    //     verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
-                    //     horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
-                    // });
-                    // });
-                }
+                this.afAuth.auth.signOut();
             }
         });
     }

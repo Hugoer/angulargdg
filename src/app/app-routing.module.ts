@@ -5,6 +5,7 @@ import { AdminRouteAccessService } from '@app/core/guards/admin-route-access-ser
 import { CustomPreloadingStrategy } from '@app/core/guards/preload-custom-strategy';
 import { environment } from '@environment/environment';
 import { HomeComponent } from '@app/layout/home/home.component';
+import { UserRouteAccessService } from './core/guards/user-route-access-service';
 
 const routes: Routes = [
     {
@@ -20,7 +21,7 @@ const routes: Routes = [
         path: 'heroes',
         component: HomeComponent,
         loadChildren: './heroes/heroes.module#HeroesModule',
-        canLoad: [AdminRouteAccessService],
+        canLoad: [UserRouteAccessService],
         data: {
             preload: false,
             delay: false

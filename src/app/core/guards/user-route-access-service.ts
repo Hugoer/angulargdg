@@ -4,20 +4,42 @@ import {
     CanActivate,
     RouterStateSnapshot,
     CanLoad,
-    Route
+    Route,
+    Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
-
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
+import { environment } from '@environment/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class UserRouteAccessService implements CanLoad, CanActivate {
 
     constructor(
+        private afAuth: AngularFireAuth,
+        private router: Router,
+        private snackBar: MatSnackBar,
+        private translateService: TranslateService,
     ) {
     }
 
-    private can(): boolean {
-        return true;
+    private can(): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            this.afAuth.user.subscribe((user) => {
+                if (!!user) {
+                    resolve(true);
+                } else {
+                    this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
+                        duration: environment.toast.duration,
+                        verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
+                        horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
+                    });
+                    this.router.navigate[''];
+                    resolve(false);
+                }
+            });
+        });
     }
 
     canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {

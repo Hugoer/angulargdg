@@ -14,26 +14,45 @@
 	.gdg__item:hover {
 		cursor: pointer;
 	}
+
 	a {
 		text-decoration: none;
 		&:focus {
 			outline-color: white;
 		}
 	}
-	h3.mat-subheader,
+
 	.gdg__item {
+		&.gdg__item--active {
+			mat-list-item {
+				text-transform: uppercase;
+
+				color: white;
+				background-color: $gdg-primary;
+			}
+		}
+
+		&:not(.gdg__item--active) {
+			mat-list-item {
+				color: white;
+				background-color: $gdg-secondary;
+			}
+		}
+	}
+
+	h3.mat-subheader,
+	mat-list-item.gdg__item {
 		color: white;
 		background-color: $gdg-secondary;
 	}
+
 	.user__icon {
 		margin-top: 15px;
 		margin-bottom: 15px;
 	}
-	.gdg__item--active {
-		text-transform: uppercase;
 
-		background-color: $gdg-primary;
-	}
+
+
 	.gdg__side-divider {
 		background-color: white;
 	}

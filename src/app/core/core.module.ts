@@ -13,9 +13,18 @@ import { AdminRouteAccessService } from './guards/admin-route-access-service';
 import { LayoutModule } from '../layout/layout.module';
 import { CustomPreloadingStrategy } from './guards/preload-custom-strategy';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { environment } from '@environment/environment';
+
 
 @NgModule({
     imports: [
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
         CommonModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -27,6 +36,9 @@ import { BrowserModule } from '@angular/platform-browser';
     exports: [
         Ng2Webstorage,
         BrowserModule,
+        AngularFireModule,
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
     ],
     providers: [
         UserRouteAccessService,
