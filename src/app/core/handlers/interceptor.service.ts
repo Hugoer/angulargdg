@@ -10,8 +10,9 @@ import {
 } from '@angular/common/http';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
-import { environment } from '@environment/environment';
-import { appEventManager } from '@app/core/handlers/eventmanager.service';
+import { appEventManager } from './eventmanager.service';
+// import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 const enum ToastType {
     'primary',

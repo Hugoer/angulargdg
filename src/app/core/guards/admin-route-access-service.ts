@@ -7,9 +7,6 @@ import {
     CanLoad
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { environment } from '@environment/environment';
-
-import { IUser } from '@app/core/user.model';
 
 @Injectable()
 export class AdminRouteAccessService implements CanActivate, CanLoad {

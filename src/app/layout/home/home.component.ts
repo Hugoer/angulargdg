@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { appEventManager } from '@app/core/handlers/eventmanager.service';
+import { appEventManager } from '../../core/handlers/eventmanager.service';
 
 @Component({
     selector: 'app-home',

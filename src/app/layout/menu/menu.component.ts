@@ -5,8 +5,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 
-import { ConfirmDialogComponent } from '@app/components/confirm/confirm.component';
 import { Observable } from 'rxjs';
+// import { ConfirmDialogComponent } from 'src/app/components/confirm/confirm.component';
+import { ConfirmDialogComponent } from '../../components/confirm/confirm.component';
+//
 
 @Component({
     selector: 'app-menu',

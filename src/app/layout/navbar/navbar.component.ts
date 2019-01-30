@@ -3,12 +3,15 @@ import { Router, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
+// import { EnumMapActions } from 'src/app/pages/tournament/tournament.model';
+import { EnumMapActions } from '../../pages/tournament/tournament.model';
+// import { GDGState } from 'src/app/redux/global.reducer';
+import { GDGState } from '../../redux/global.reducer';
+// import { appEventManager } from 'src/app/core/handlers/eventmanager.service';
+import { appEventManager } from '../../core/handlers/eventmanager.service';
+// import { AppTitleService } from 'src/app/core/language/language.helper';
+import { AppTitleService } from '../../core/language/language.helper';
 
-import { GDGState } from '@app/redux/global.reducer';
-import { appEventManager } from '@app/core/handlers/eventmanager.service';
-
-import { AppTitleService } from '@app/core/language/language.helper';
-import { EnumMapActions } from '@app/pages/tournament/tournament.model';
 
 export interface IAction {
     name: string;

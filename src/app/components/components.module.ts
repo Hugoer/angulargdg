@@ -10,9 +10,9 @@ import {
     MatButtonModule,
 } from '@angular/material';
 
-import { SharedModule } from '@app/shared/shared.module';
 import { ConfirmDialogComponent } from './confirm/confirm.component';
 import { HeroeVillainComponent } from './heroe-villain/heroe-villain.component';
+import { SharedModule } from '../shared/shared.module';
 
 const MATERIAL_COMPONENTS_MODULES = [
     MatListModule,

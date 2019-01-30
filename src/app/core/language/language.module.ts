@@ -13,9 +13,11 @@ import { AppLanguageService } from './language.service';
 import { AppMissingTranslationHandler } from './missing-translation';
 import { AppTitleService } from './language.helper';
 import { LocalStorageService } from 'ngx-webstorage';
-import { environment } from '@environment/environment';
+
 
 import * as moment from 'moment';
+// import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 export function translatePartialLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, 'i18n/', '.json');

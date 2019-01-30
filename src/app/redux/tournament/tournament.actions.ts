@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
-import { ITournament } from '@app/pages/tournament/tournament.model';
+// import { ITournament } from 'src/app/pages/tournament/tournament.model';
+import { ITournament } from '../../pages/tournament/tournament.model';
 
 export enum TournamentActionTypes {
     LoadTournament = '[TOURNAMENT] - LoadTournament',

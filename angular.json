@@ -17,7 +17,7 @@
             },
             "architect": {
                 "build": {
-                    "builder": "ngx-build-plus:build",
+                    "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/angulargdg",
                         "index": "src/index.html",
@@ -114,6 +114,43 @@
                         "exclude": [
                             "**/node_modules/**"
                         ]
+                    }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/angulargdg-server",
+                        "main": "src/main.server.ts",
+                        "tsConfig": "src/tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "sourceMap": false,
+                            "optimization": {
+                                "scripts": false,
+                                "styles": true
+                            }
+                        }
+                    }
+                },
+                "app-shell": {
+                    "builder": "@angular-devkit/build-angular:app-shell",
+                    "options": {
+                        "browserTarget": "angulargdg:build",
+                        "serverTarget": "angulargdg:server",
+                        "route": "shell"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "angulargdg:build:production",
+                            "serverTarget": "angulargdg:server:production"
+                        }
                     }
                 }
             }

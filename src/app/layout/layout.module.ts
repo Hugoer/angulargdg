@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@app/shared/shared.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -13,16 +12,17 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { SpinnerComponent } from '@app/core/spinner/spinner.component';
-import { LoginComponent } from '@app/core/login/login.component';
-import { CloseMenuDirective } from '@app/core/directives/closemenu.directive';
-import { LanguageModule } from '@app/core/language/language.module';
-import { HomeComponent } from '@app/layout/home/home.component';
-import { NavbarComponent } from '@app/layout/navbar/navbar.component';
-import { MenuComponent } from '@app/layout/menu/menu.component';
-import { ConfirmDialogComponent } from '@app/components/confirm/confirm.component';
-import { ComponentsModule } from '@app/components/components.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from '../components/components.module';
+import { SpinnerComponent } from '../core/spinner/spinner.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MenuComponent } from './menu/menu.component';
+import { CloseMenuDirective } from '../core/directives/closemenu.directive';
+import { LanguageModule } from '../core/language/language.module';
+import { LoginComponent } from '../core/login/login.component';
+import { ConfirmDialogComponent } from '../components/confirm/confirm.component';
 
 const MATERIAL_LAYOUT_MODULES = [
     MatTooltipModule,

@@ -5,9 +5,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule, MatCheckboxModule } from '@angular/material';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ComponentsModule } from '@app/components/components.module';
-import { AdminRoutingModule } from '@app/heroes/heroes.routes';
 import { HeroeListComponent } from './heroe-list/heroe-list.component';
+import { AdminRoutingModule } from './heroes.routes';
+import { ComponentsModule } from '../components/components.module';
 
 const MATERIAL_MODULES = [
     MatSortModule,

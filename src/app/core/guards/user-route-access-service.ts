@@ -10,7 +10,6 @@ import {
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
-import { environment } from '@environment/environment';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()

@@ -14,10 +14,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-import { ComponentsModule } from '@app/components/components.module';
-import { PagesRoutingModule } from '@app/pages/pages.routes';
+import { ComponentsModule } from '../components/components.module';
+import { PagesRoutingModule } from './pages.routes';
 
 import { TournamentComponent } from './tournament/tournament.component';
+
 
 const MATERIAL_PAGES_MODULES = [
     MatTooltipModule,

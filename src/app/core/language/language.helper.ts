@@ -1,7 +1,9 @@
-import { Injectable, RendererFactory2, Renderer2 } from '@angular/core';
+import { Injectable, RendererFactory2, Renderer2, Inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Injectable()
 export class AppTitleService {
@@ -13,8 +15,11 @@ export class AppTitleService {
         private rootRenderer: RendererFactory2,
         private titleService: Title,
         private router: Router,
+        @Inject(PLATFORM_ID) private platformId: Object
     ) {
-        this.rendererHtmlTag = rootRenderer.createRenderer(document.querySelector('html'), null);
+        if (isPlatformBrowser(this.platformId)) {
+            this.rendererHtmlTag = rootRenderer.createRenderer(document.querySelector('html'), null);
+        }
         this.init();
     }
 
@@ -34,7 +39,9 @@ export class AppTitleService {
         this.translateService.onLangChange
             .subscribe(() => {
                 console.log('Cambiamos de idioma: ' + this.translateService.currentLang);
-                this.rendererHtmlTag.setAttribute(document.querySelector('html'), 'lang', this.translateService.currentLang);
+                if (isPlatformBrowser(this.platformId)) {
+                    this.rendererHtmlTag.setAttribute(document.querySelector('html'), 'lang', this.translateService.currentLang);
+                }
                 this.updateTabTitle();
             });
 
@@ -50,13 +57,15 @@ export class AppTitleService {
 
     updateNavBarTitle(title: string) {
         this.rootRenderer.whenRenderingDone().then(() => {
-            const navbarTitle = document.getElementsByClassName('navbar__title')[0];
-            if (!navbarTitle) {
-                setTimeout(() => {
-                    this.updateNavBarTitle(title);
-                }, 100);
-            } else if (!!navbarTitle) {
-                navbarTitle.innerHTML = title;
+            if (isPlatformBrowser(this.platformId)) {
+                const navbarTitle = document.getElementsByClassName('navbar__title')[0];
+                if (!navbarTitle) {
+                    setTimeout(() => {
+                        this.updateNavBarTitle(title);
+                    }, 100);
+                } else if (!!navbarTitle) {
+                    navbarTitle.innerHTML = title;
+                }
             }
         });
     }
@@ -78,7 +87,9 @@ export class AppTitleService {
                     this.updateNavBarTitle(title);
                 });
                 this.updateTabTitle(titleKey);
-                window.scrollTo(0, 0);
+                if (isPlatformBrowser(this.platformId)) {
+                    window.scrollTo(0, 0);
+                }
             }
         });
     }

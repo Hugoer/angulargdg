@@ -1,5 +1,5 @@
 import { Directive, HostListener, OnInit } from '@angular/core';
-import { appEventManager } from '@app/core/handlers/eventmanager.service';
+import { appEventManager } from '../handlers/eventmanager.service';
 
 @Directive({
     selector: '[appClosemenu]'

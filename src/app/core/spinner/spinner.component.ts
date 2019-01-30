@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { appEventManager } from '@app/core/handlers/eventmanager.service';
+import { appEventManager } from '../handlers/eventmanager.service';
 
 @Component({
     selector: 'app-spinner',
