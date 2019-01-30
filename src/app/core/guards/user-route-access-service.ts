@@ -25,23 +25,21 @@ export class UserRouteAccessService implements CanLoad, CanActivate {
     }
 
     private can(): Promise<boolean> | boolean {
-        this.router.navigate['home'];
-        return false;
-        // return new Promise<boolean>((resolve, reject) => {
-        // this.afAuth.user.subscribe((user) => {
-        //     if (!!user) {
-        //         resolve(true);
-        //     } else {
-        //         this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
-        //             duration: environment.toast.duration,
-        //             verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
-        //             horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
-        //         });
-        // this.router.navigate[''];
-        // reject(false);
-        //     }
-        // });
-        // });
+        return new Promise<boolean>((resolve, reject) => {
+            this.afAuth.user.subscribe((user) => {
+                if (!!user) {
+                    resolve(true);
+                } else {
+                    this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
+                        duration: environment.toast.duration,
+                        verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
+                        horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
+                    });
+                    resolve(false);
+                    this.router.navigate(['']);
+                }
+            });
+        });
 
         // if(this.authService.isLoggedIn !== true) {
         //     window.alert('Access Denied, Login is Required to Access This Page!')
