@@ -8,11 +8,13 @@ import {
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
 } from '@angular/material';
 
 import { SharedModule } from '@app/shared/shared.module';
 import { ConfirmDialogComponent } from './confirm/confirm.component';
 import { HeroeVillainComponent } from './heroe-villain/heroe-villain.component';
+import { UserComponent } from './user/user.component';
 
 const MATERIAL_COMPONENTS_MODULES = [
     MatListModule,
@@ -23,6 +25,7 @@ const MATERIAL_COMPONENTS_MODULES = [
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule
 ];
 
 @NgModule({
@@ -33,16 +36,19 @@ const MATERIAL_COMPONENTS_MODULES = [
     declarations: [
         ConfirmDialogComponent,
         HeroeVillainComponent,
+        UserComponent,
     ],
     entryComponents: [
         ConfirmDialogComponent,
         HeroeVillainComponent,
+        UserComponent,
     ],
     exports: [
         MATERIAL_COMPONENTS_MODULES,
         SharedModule,
         ConfirmDialogComponent,
         HeroeVillainComponent,
+        UserComponent,
     ]
 })
 export class ComponentsModule { }

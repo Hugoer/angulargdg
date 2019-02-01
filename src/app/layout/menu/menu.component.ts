@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, RouterEvent } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AngularFireAuth } from '@angular/fire/auth';
+
 import { auth } from 'firebase/app';
 
 import { ConfirmDialogComponent } from '@app/components/confirm/confirm.component';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { UserService } from '@app/core/user.service';
+import { takeUntil, take } from 'rxjs/operators';
 
 @Component({
     selector: 'app-menu',
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
     url = '';
     main = {
@@ -28,11 +31,15 @@ export class MenuComponent implements OnInit {
     userAdmin = true;
     userLogged = false;
 
+    private _destroyed$ = new Subject();
+
     constructor(
         private translateService: TranslateService,
         private router: Router,
         public dialog: MatDialog,
         private afAuth: AngularFireAuth,
+
+        private userService: UserService,
     ) {
         this.translateService.get([
             'global.menu.tournament.title',
@@ -47,19 +54,29 @@ export class MenuComponent implements OnInit {
         });
         this.user = this.afAuth.user;
         this.user
-            .subscribe((user: firebase.User) => {
-                console.log(user);
+            .pipe(takeUntil(this._destroyed$))
+            .subscribe((userFb: firebase.User) => {
+                if (!!userFb) {
+                    this.userService.createUser(userFb);
+                }
             });
     }
 
 
     ngOnInit() {
         this.url = this.router.url;
-        this.router.events.subscribe((event: RouterEvent) => {
-            if (!!event.url) {
-                this.url = this.router.url;
-            }
-        });
+        this.router.events
+            .pipe(takeUntil(this._destroyed$))
+            .subscribe((event: RouterEvent) => {
+                if (!!event.url) {
+                    this.url = this.router.url;
+                }
+            });
+    }
+
+    ngOnDestroy(): void {
+        this._destroyed$.next();
+        this._destroyed$.complete();
     }
 
     signIn() {
@@ -74,11 +91,14 @@ export class MenuComponent implements OnInit {
                 question: this.main.signOutQuestion
             }
         });
-        dialogRef.afterClosed().subscribe((result) => {
-            if (!!result) {
-                this.afAuth.auth.signOut();
-            }
-        });
+        dialogRef.afterClosed()
+            .pipe(take(1))
+            .subscribe((result) => {
+                if (!!result) {
+                    this.afAuth.auth.signOut();
+                    this.router.navigate(['']);
+                }
+            });
     }
 
 }

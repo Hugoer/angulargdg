@@ -12,6 +12,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 import { environment } from '@environment/environment';
 import { TranslateService } from '@ngx-translate/core';
+import { take } from 'rxjs/operators';
 
 @Injectable()
 export class UserRouteAccessService implements CanLoad, CanActivate {
@@ -26,19 +27,21 @@ export class UserRouteAccessService implements CanLoad, CanActivate {
 
     private can(): Promise<boolean> | boolean {
         return new Promise<boolean>((resolve, reject) => {
-            this.afAuth.user.subscribe((user) => {
-                if (!!user) {
-                    resolve(true);
-                } else {
-                    this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
-                        duration: environment.toast.duration,
-                        verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
-                        horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
-                    });
-                    resolve(false);
-                    this.router.navigate(['']);
-                }
-            });
+            this.afAuth.user
+                .pipe(take(1))
+                .subscribe((user) => {
+                    if (!!user) {
+                        resolve(true);
+                    } else {
+                        this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
+                            duration: environment.toast.duration,
+                            verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
+                            horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
+                        });
+                        resolve(false);
+                        this.router.navigate(['']);
+                    }
+                });
         });
 
         // if(this.authService.isLoggedIn !== true) {

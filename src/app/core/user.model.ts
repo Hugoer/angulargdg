@@ -1,16 +1,7 @@
 export interface IUser {
-    accessToken: string;
-    id: string;
-    login: string;
-    firstName: string;
-    lastName: string;
+    uid: string;
+    displayName: string;
     email: string;
-    imageUrl: string;
-    activated: boolean;
+    photoURL: string;
     langKey: string;
-    createdBy: string;
-    createdDate: string;
-    lastModifiedBy: string;
-    lastModifiedDate: string;
-    authorities: string[];
 }

@@ -18,13 +18,14 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment } from '@environment/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 @NgModule({
     imports: [
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireDatabaseModule,
-        AngularFireAuthModule,
+        // AngularFireDatabaseModule,
+        // AngularFireAuthModule,
         CommonModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -39,6 +40,7 @@ import { environment } from '@environment/environment';
         AngularFireModule,
         AngularFireDatabaseModule,
         AngularFireAuthModule,
+        AngularFirestoreModule,
     ],
     providers: [
         UserRouteAccessService,

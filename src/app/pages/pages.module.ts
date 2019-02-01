@@ -18,6 +18,7 @@ import { ComponentsModule } from '@app/components/components.module';
 import { PagesRoutingModule } from '@app/pages/pages.routes';
 
 import { TournamentComponent } from './tournament/tournament.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const MATERIAL_PAGES_MODULES = [
     MatTooltipModule,
@@ -46,12 +47,15 @@ const MATERIAL_PAGES_MODULES = [
         ComponentsModule,
         MATERIAL_PAGES_MODULES,
         TournamentComponent,
+        ProfileComponent,
     ],
     declarations: [
         TournamentComponent,
+        ProfileComponent,
     ],
     entryComponents: [
         TournamentComponent,
+        ProfileComponent,
     ],
     providers: [
 

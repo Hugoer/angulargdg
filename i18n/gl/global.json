@@ -34,6 +34,10 @@
         "dialog": {
             "cancel": "Pechar a pantalla modal para cancelar o proceso de pechar sesión",
             "accept": "Aceptar o proceso de pecchar sesión"
+        },
+        "languages": {
+            "es": "Español",
+            "gl": "Galego"
         }
     }
 }

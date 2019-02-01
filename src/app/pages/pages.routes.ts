@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TournamentComponent } from '@app/pages/tournament/tournament.component';
+import { UserComponent } from '@app/components/user/user.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,13 @@ const routes: Routes = [
         data: {
             showNavbarMenu: true,
             pageTitle: 'tournament.title'
+        }
+    }, {
+        path: 'profile/:id',
+        component: UserComponent,
+        data: {
+            showNavbarMenu: false,
+            pageTitle: 'profile.title'
         }
     }
 ];

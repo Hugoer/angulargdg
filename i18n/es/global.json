@@ -34,6 +34,10 @@
         "dialog": {
             "cancel": "Cerrar la pantalla modal para cancelar el proceso de cerrar sesión",
             "accept": "Aceptar el proceso de cerrar sesión"
+        },
+        "languages": {
+            "es": "Español",
+            "gl": "Gallego"
         }
     }
 }

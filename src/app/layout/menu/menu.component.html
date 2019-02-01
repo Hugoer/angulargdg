@@ -6,10 +6,13 @@
     <ng-container *ngIf="user | async;">
         <h3 mat-subheader>{{'main.user'| translate}}</h3>
 
-        <mat-list-item class="gdg__item">
-            <mat-icon mat-list-icon>perm_identity</mat-icon>
-            <span mat-line>{{ (user | async)?.displayName }}</span>
-        </mat-list-item>
+        <a [routerLink]="['profile',(user | async)?.uid]" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
+            [routerLinkActiveOptions]="{exact: true}">
+            <mat-list-item>
+                <mat-icon mat-list-icon>perm_identity</mat-icon>
+                <span mat-line>{{ (user | async)?.displayName }}</span>
+            </mat-list-item>
+        </a>
     </ng-container>
 
     <mat-divider class="gdg__side-divider"></mat-divider>
