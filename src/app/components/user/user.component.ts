@@ -5,6 +5,7 @@ import { AppLanguageService } from '@app/core/language/language.service';
 import { UserService } from '@app/core/user.service';
 import { takeUntil } from 'rxjs/operators';
 
+
 @Component({
     selector: 'user',
     templateUrl: './user.component.html',
@@ -23,6 +24,7 @@ export class UserComponent implements OnInit, OnDestroy {
     constructor(
         private userService: UserService,
         private langService: AppLanguageService,
+
     ) {
 
     }
@@ -31,8 +33,8 @@ export class UserComponent implements OnInit, OnDestroy {
         this.user.asObservable()
             .pipe(takeUntil(this._destroyed$))
             .subscribe((user) => {
-                this.langKey = user.langKey;
                 this.uid = user.uid;
+                this.langKey = user.langKey;
             });
     }
 

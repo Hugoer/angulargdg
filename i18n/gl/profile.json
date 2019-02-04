@@ -1,5 +1,6 @@
 {
     "profile": {
-        "title": "Perfil do usuario"
+        "title": "Perfil do usuario",
+        "uid": "Identificador do usuario"
     }
 }

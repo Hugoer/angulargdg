@@ -1,11 +1,17 @@
 <mat-list class="gdg__side-menu">
-    <div class="gdg__side-login">
-        <img class="user__icon" [attr.src]="'./assets/logo.png'" alt="" width="75" height="75">
+    <div class="gdg__side-login" *ngIf="user$ | async as user; else userLogo">
+        <img class="user__icon" [attr.src]="user.photoURL" alt="" width="75" height="75">
     </div>
+
+    <ng-template #userLogo>
+        <div class="gdg__side-login">
+            <img class="user__icon" [attr.src]="'./assets/logo.png'" alt="" width="75" height="75">
+        </div>
+    </ng-template>
 
     <ng-container *ngIf="user$ | async as user;">
         <h3 mat-subheader>{{'main.user'| translate}}</h3>
-        <a [routerLink]="['profile',user.uid]" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
+        <a [routerLink]="['/profile',user.uid]" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
             [routerLinkActiveOptions]="{exact: true}">
             <mat-list-item appClosemenu>
                 <mat-icon mat-list-icon>perm_identity</mat-icon>

@@ -1,20 +1,43 @@
 <mat-card class="example-card" *ngIf="user | async as _user; else showLogin">
     <mat-card-header>
         <mat-card-title>{{_user.displayName}}</mat-card-title>
-        <mat-card-subtitle>{{_user.displayName}}</mat-card-subtitle>
+        <mat-card-subtitle>{{_user.email}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image [src]="_user.photoURL" alt="User profile {{_user.displayName}}">
     <mat-card-content>
-        <mat-form-field>
-            <mat-select [(value)]="langKey" (selectionChange)="changeLanguage($event)">
-                <mat-option value="gl">{{ 'global.languages.gl' | translate }}</mat-option>
-                <mat-option value="es">{{ 'global.languages.es' | translate }}</mat-option>
-            </mat-select>
-        </mat-form-field>
+
+        <mat-list>
+
+            <h3 mat-subheader>{{'profile.uid' | translate}}</h3>
+            <mat-list-item>
+                <mat-icon mat-list-icon>perm_identity</mat-icon>
+                <h4 mat-line>{{_user.uid}}</h4>
+            </mat-list-item>
+
+            <h3 mat-subheader>{{'global.language' | translate}}</h3>
+            <mat-list-item>
+                <mat-icon mat-list-icon>flag</mat-icon>
+                <h4 mat-line>{{'global.languages.' + _user.langKey | translate}}</h4>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+
+            <h3 mat-subheader>{{'global.changeLanguage' | translate}}</h3>
+            <mat-list-item>
+                <mat-form-field>
+                    <mat-select [(value)]="langKey" (selectionChange)="changeLanguage($event)">
+                        <mat-option value="gl">{{ 'global.languages.gl' | translate }}</mat-option>
+                        <mat-option value="es">{{ 'global.languages.es' | translate }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-list-item>
+
+        </mat-list>
+
     </mat-card-content>
-    <mat-card-actions>
+    <!-- <mat-card-actions>
         <button mat-button>LIKE</button>
-    </mat-card-actions>
+    </mat-card-actions> -->
 </mat-card>
 
 <ng-template #showLogin>

@@ -38,6 +38,8 @@
         "languages": {
             "es": "Español",
             "gl": "Gallego"
-        }
+        },
+        "language": "Idioma",
+        "changeLanguage": "Cambiar el idioma"
     }
 }

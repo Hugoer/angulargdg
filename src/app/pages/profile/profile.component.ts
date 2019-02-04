@@ -1,9 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { IUser } from '@app/core/user.model';
 import { UserService } from '@app/core/user.service';
 import { ActivatedRoute } from '@angular/router';
-import { map, take } from 'rxjs/operators';
+import { map, take, takeUntil } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
     selector: 'app-profile',
@@ -11,24 +12,40 @@ import { map, take } from 'rxjs/operators';
     styleUrls: ['./profile.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
 
     user$ = new Subject<IUser>();
+
+    private _destroyed$ = new Subject();
 
     constructor(
         private route: ActivatedRoute,
         private userService: UserService,
+        private afs: AngularFirestore,
     ) {
         const userUid = this.route.snapshot.paramMap.get('id');
+
         this.userService.getUser(userUid)
             .pipe(take(1))
             .subscribe((doc) => {
                 this.user$.next(<IUser>doc.data());
             });
+
+        this.afs.collection<IUser>(`user`).doc(userUid)
+            .valueChanges()
+            .pipe(takeUntil(this._destroyed$))
+            .subscribe((userUpdated: IUser) => {
+                this.user$.next(<IUser>userUpdated);
+            });
     }
 
     ngOnInit() {
 
+    }
+
+    ngOnDestroy(): void {
+        this._destroyed$.next();
+        this._destroyed$.complete();
     }
 
 }

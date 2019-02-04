@@ -38,7 +38,9 @@
 		"languages": {
 			"es": "Español",
 			"gl": "Gallego"
-		}
+		},
+		"language": "Idioma",
+		"changeLanguage": "Cambiar el idioma"
 	},
 	"main": {
 		"index": "Marvel App",
@@ -53,7 +55,8 @@
 		}
 	},
 	"profile": {
-		"title": "Perfil del usuario"
+		"title": "Perfil del usuario",
+		"uid": "Identificador del usuario"
 	},
 	"tournament": {
 		"title": "Torneo",
