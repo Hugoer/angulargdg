@@ -17,7 +17,7 @@ export class UserService {
     }
 
     changeLanguage(uid: string, langKey: string): Promise<void> {
-        return this.afs.doc<IUser>(`user/${uid}/langKey`).update({
+        return this.afs.doc<IUser>(`user/${uid}`).update({
             langKey: langKey
         });
     }

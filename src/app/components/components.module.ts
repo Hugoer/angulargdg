@@ -9,6 +9,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressSpinnerModule,
 } from '@angular/material';
 
 import { SharedModule } from '@app/shared/shared.module';
@@ -25,7 +26,8 @@ const MATERIAL_COMPONENTS_MODULES = [
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
 ];
 
 @NgModule({

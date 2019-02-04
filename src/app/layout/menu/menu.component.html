@@ -3,14 +3,13 @@
         <img class="user__icon" [attr.src]="'./assets/logo.png'" alt="" width="75" height="75">
     </div>
 
-    <ng-container *ngIf="user | async;">
+    <ng-container *ngIf="user$ | async as user;">
         <h3 mat-subheader>{{'main.user'| translate}}</h3>
-
-        <a [routerLink]="['profile',(user | async)?.uid]" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
+        <a [routerLink]="['profile',user.uid]" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
             [routerLinkActiveOptions]="{exact: true}">
-            <mat-list-item>
+            <mat-list-item appClosemenu>
                 <mat-icon mat-list-icon>perm_identity</mat-icon>
-                <span mat-line>{{ (user | async)?.displayName }}</span>
+                <span mat-line>{{ user.displayName }}</span>
             </mat-list-item>
         </a>
     </ng-container>
@@ -20,7 +19,7 @@
     <a [routerLink]="['/']" class="gdg__item" [routerLinkActive]="['gdg__item--active']" [routerLinkActiveOptions]="{exact: true}">
         <mat-list-item appClosemenu>
             <mat-icon mat-list-icon>layers</mat-icon>
-            <span mat-line>{{main.index}}</span>
+            <span mat-line>{{'main.index' | translate}}</span>
         </mat-list-item>
     </a>
 
@@ -52,10 +51,10 @@
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <mat-list-item appClosemenu class="gdg__item" (click)="signOut()" *ngIf="user | async; else showLogin">
+    <mat-list-item appClosemenu class="gdg__item" (click)="signOut()" *ngIf="user$ | async; else showLogin">
         <mat-icon mat-list-icon>power_settings_new</mat-icon>
 
-        <span mat-line>{{main.signOut}}</span>
+        <span mat-line>{{'main.signOut' | translate}}</span>
     </mat-list-item>
 
     <ng-template #showLogin>
@@ -63,7 +62,7 @@
         <mat-list-item appClosemenu class="gdg__item" (click)="signIn()">
             <mat-icon mat-list-icon>power_settings_new</mat-icon>
 
-            <span mat-line>{{main.signIn}}</span>
+            <span mat-line>{{'main.signIn' | translate}}</span>
         </mat-list-item>
     </ng-template>
 

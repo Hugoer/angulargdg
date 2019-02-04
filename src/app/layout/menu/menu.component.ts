@@ -19,14 +19,8 @@ import { takeUntil, take } from 'rxjs/operators';
 export class MenuComponent implements OnInit, OnDestroy {
 
     url = '';
-    main = {
-        'index': '',
-        'signOut': '',
-        'signIn': '',
-        'signOutQuestion': '',
-    };
 
-    user: Observable<firebase.User>;
+    user$: Observable<firebase.User>;
 
     userAdmin = true;
     userLogged = false;
@@ -41,23 +35,16 @@ export class MenuComponent implements OnInit, OnDestroy {
 
         private userService: UserService,
     ) {
-        this.translateService.get([
-            'global.menu.tournament.title',
-            'main.signOut',
-            'main.signIn',
-            'main.signOutQuestion',
-        ]).toPromise().then((translation) => {
-            this.main.index = translation['global.menu.tournament.title'];
-            this.main.signOut = translation['main.signOut'];
-            this.main.signIn = translation['main.signIn'];
-            this.main.signOutQuestion = translation['main.signOutQuestion'];
-        });
-        this.user = this.afAuth.user;
-        this.user
+
+        this.user$ = this.afAuth.user;
+        this.user$
             .pipe(takeUntil(this._destroyed$))
             .subscribe((userFb: firebase.User) => {
                 if (!!userFb) {
                     this.userService.createUser(userFb);
+                    this.userLogged = true;
+                } else {
+                    this.userLogged = false;
                 }
             });
     }
@@ -87,8 +74,8 @@ export class MenuComponent implements OnInit, OnDestroy {
     signOut(): void {
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
             data: {
-                title: this.main.signOut,
-                question: this.main.signOutQuestion
+                title: this.translateService.instant('main.signOut'),
+                question: this.translateService.instant('main.signOutQuestion')
             }
         });
         dialogRef.afterClosed()

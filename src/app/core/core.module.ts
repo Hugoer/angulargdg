@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, ChangeDetectorRef } from '@angular/core';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { MainInterceptor } from './handlers/interceptor.service';
@@ -43,6 +43,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
         AngularFirestoreModule,
     ],
     providers: [
+        // ChangeDetectorRef,
         UserRouteAccessService,
         AdminRouteAccessService,
         CustomPreloadingStrategy,

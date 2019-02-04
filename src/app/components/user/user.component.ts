@@ -1,8 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
 import { IUser } from '@app/core/user.model';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AppLanguageService } from '@app/core/language/language.service';
 import { UserService } from '@app/core/user.service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'user',
@@ -10,28 +11,40 @@ import { UserService } from '@app/core/user.service';
     styleUrls: ['./user.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
 
-    @Input() user: Observable<IUser>;
+    @Input() user: Subject<IUser>;
 
     langKey: string;
     uid: string;
+
+    private _destroyed$ = new Subject();
 
     constructor(
         private userService: UserService,
         private langService: AppLanguageService,
     ) {
-        this.user.subscribe((user) => {
-            this.langKey = user.langKey;
-            this.uid = user.uid;
-        });
+
     }
 
     ngOnInit() {
+        this.user.asObservable()
+            .pipe(takeUntil(this._destroyed$))
+            .subscribe((user) => {
+                this.langKey = user.langKey;
+                this.uid = user.uid;
+            });
+    }
+
+    ngOnDestroy(): void {
+        this._destroyed$.next();
+        this._destroyed$.complete();
     }
 
     changeLanguage(data) {
-        this.userService.changeLanguage(this.uid, data);
+        const newLang = data.value;
+        this.userService.changeLanguage(this.uid, newLang);
+        this.langService.changeLanguage(newLang);
     }
 
 }
