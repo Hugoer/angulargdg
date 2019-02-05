@@ -23,16 +23,17 @@ const routes: Routes = [
             delay: false
         }
     },
-    // {
-    //     path: 'villains',
-    //     component: HomeComponent,
-    //     loadChildren: './villains/villains.module#VillainsModule',
-    //     canLoad: [AdminRouteAccessService],
-    //     data: {
-    //         preload: false,
-    //         delay: false
-    //     }
-    // },
+    {
+        path: 'villains',
+        component: HomeComponent,
+        loadChildren: './villains/villains.module#VillainsModule',
+        canLoad: [AdminRouteAccessService],
+        // canActivate: [AdminRouteAccessService],
+        data: {
+            preload: false,
+            delay: false
+        }
+    },
     {
         path: '**',
         redirectTo: ''

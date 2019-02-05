@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { ComponentsModule } from '@app/components/components.module';
-import { HeroeRoutingModule } from '@app/heroes/heroes.routes';
-import { HeroeListComponent } from './heroe-list/heroe-list.component';
+import { VillainRoutingModule } from './villains.routes';
+import { VillainListComponent } from './villain-list/villain-list.component';
 
 @NgModule({
     imports: [
-        HeroeRoutingModule,
+        VillainRoutingModule,
         ComponentsModule,
     ],
     exports: [
         ComponentsModule,
     ],
     declarations: [
-        HeroeListComponent,
+        VillainListComponent,
     ],
     entryComponents: [
-        HeroeListComponent,
+        VillainListComponent
     ],
     providers: [
 
     ]
 })
 
-export class HeroesModule { }
+export class VillainsModule { }

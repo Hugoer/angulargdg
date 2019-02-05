@@ -22,6 +22,12 @@ export class UserService {
         });
     }
 
+    changeAllowShowVillains(uid: string, checked: boolean): Promise<void> {
+        return this.afs.doc<IUser>(`user/${uid}`).update({
+            allowShowVillains: checked
+        });
+    }
+
     getUser(uid: string): Observable<firebase.firestore.DocumentSnapshot> {
         const userDoc: AngularFirestoreDocument<IUser> = this.afs.doc<IUser>(`user/${uid}`);
         return userDoc.get().pipe(take(1));

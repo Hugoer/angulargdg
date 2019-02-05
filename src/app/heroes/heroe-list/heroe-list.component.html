@@ -1,3 +1,1 @@
-<p>
-  heroe-list works!
-</p>
+<heroe-villain *ngFor="let hero of heroes$ | async" [character]="hero" class="hero__item"></heroe-villain>

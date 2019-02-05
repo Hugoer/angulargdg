@@ -5,6 +5,13 @@
 	text-overflow: ellipsis;
 }
 
+%hero-villain__container {
+	display: flex;
+
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
 .fullwidth {
 	flex: 1;
 

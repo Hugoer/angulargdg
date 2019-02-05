@@ -46,11 +46,14 @@
 		background-color: $gdg-secondary;
 	}
 
-	.user__icon {
+	.logo {
 		margin-top: 15px;
 		margin-bottom: 15px;
-	}
 
+		&.user__icon {
+			border-radius: 100%;
+		}
+	}
 
 
 	.gdg__side-divider {

@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { HeroService } from './heroe.service';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { IHeroVillain } from './hero-villain.model';
 
 @Component({
     selector: 'heroe-villain',
@@ -7,17 +7,11 @@ import { HeroService } from './heroe.service';
     styleUrls: ['./heroe-villain.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeroeVillainComponent implements OnInit {
+export class HeroeVillainComponent {
+
+    @Input() character: IHeroVillain;
 
     constructor(
-        private heroService: HeroService,
     ) { }
-
-    ngOnInit() {
-        // this.heroService.getHeroes()
-        // .subscribe((heroes) => {
-        //     console.log(heroes);
-        // });
-    }
 
 }

@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { AppLanguageService } from '@app/core/language/language.service';
 import { UserService } from '@app/core/user.service';
 import { takeUntil } from 'rxjs/operators';
+import { MatSlideToggleChange, MatSelectChange } from '@angular/material';
 
 
 @Component({
@@ -43,10 +44,15 @@ export class UserComponent implements OnInit, OnDestroy {
         this._destroyed$.complete();
     }
 
-    changeLanguage(data) {
+    changeLanguage(data: MatSelectChange) {
         const newLang = data.value;
         this.userService.changeLanguage(this.uid, newLang);
         this.langService.changeLanguage(newLang);
+    }
+
+    changeAllowShowVillains(data: MatSlideToggleChange) {
+        const isActive = data.checked;
+        this.userService.changeAllowShowVillains(this.uid, isActive);
     }
 
 }

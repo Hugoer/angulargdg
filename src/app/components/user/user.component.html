@@ -32,12 +32,20 @@
                 </mat-form-field>
             </mat-list-item>
 
+            <mat-divider></mat-divider>
+
+            <mat-list-item>
+
+                <mat-slide-toggle [color]="'secondary'" [checked]="_user.allowShowVillains" (change)="changeAllowShowVillains($event)">
+                    {{'profile.allowShowVillains' | translate}}
+                </mat-slide-toggle>
+
+            </mat-list-item>
+
         </mat-list>
 
     </mat-card-content>
-    <!-- <mat-card-actions>
-        <button mat-button>LIKE</button>
-    </mat-card-actions> -->
+
 </mat-card>
 
 <ng-template #showLogin>

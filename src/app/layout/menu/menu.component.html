@@ -1,11 +1,11 @@
 <mat-list class="gdg__side-menu">
     <div class="gdg__side-login" *ngIf="user$ | async as user; else userLogo">
-        <img class="user__icon" [attr.src]="user.photoURL" alt="" width="75" height="75">
+        <img class="logo user__icon" [attr.src]="user.photoURL" alt="" width="75" height="75">
     </div>
 
     <ng-template #userLogo>
         <div class="gdg__side-login">
-            <img class="user__icon" [attr.src]="'./assets/logo.png'" alt="" width="75" height="75">
+            <img class="logo" [attr.src]="'./assets/logo.png'" alt="" width="75" height="75">
         </div>
     </ng-template>
 
@@ -35,16 +35,14 @@
 
         <h3 mat-subheader>{{'global.character'| translate}}</h3>
 
-        <a [routerLink]="['/heroes']" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
-            [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/heroes']" class="gdg__item" [routerLinkActive]="['gdg__item--active']">
             <mat-list-item appClosemenu>
                 <mat-icon mat-list-icon>person</mat-icon>
                 <span mat-line>{{'global.menu.heroe.title' | translate}}</span>
             </mat-list-item>
         </a>
 
-        <a [routerLink]="['/villain']" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
-            [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/villains']" class="gdg__item" [routerLinkActive]="['gdg__item--active']">
             <mat-list-item appClosemenu>
                 <mat-icon mat-list-icon>person</mat-icon>
                 <span mat-line>{{'global.menu.villain.title' | translate}}</span>

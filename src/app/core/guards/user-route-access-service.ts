@@ -27,6 +27,7 @@ export class UserRouteAccessService implements CanLoad, CanActivate {
 
     private can(): Promise<boolean> | boolean {
         return new Promise<boolean>((resolve, reject) => {
+            console.log('User route access service');
             this.afAuth.user
                 .pipe(take(1))
                 .subscribe((user) => {

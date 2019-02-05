@@ -1,5 +1,6 @@
 @import './css/theming';
 @import './css/variables';
+@import './css/heroevillain';
 
 body {
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
@@ -16,8 +17,7 @@ body {
 }
 
 .gdg__margin router-outlet + *:not(app-main) {
-	display: block;
-
+	// display: block;
 	padding: 15px;
 }
 

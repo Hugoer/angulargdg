@@ -1,4 +1,8 @@
 {
+	"character": {
+		"firstApparition": "Primeira aparición",
+		"desc": "Información"
+	},
 	"angulargdg": {
 		"title": "Benvido a 'Marvel Tournament App'",
 		"yes": "sí",
@@ -42,6 +46,9 @@
 		"language": "Idioma",
 		"changeLanguage": "Cambiar o idioma"
 	},
+	"heroes": {
+		"title": "Listado dos heroes"
+	},
 	"main": {
 		"index": "Marvel App",
 		"signOut": "Pechar sesión",
@@ -56,7 +63,8 @@
 	},
 	"profile": {
 		"title": "Perfil do usuario",
-		"uid": "Identificador do usuario"
+		"uid": "Identificador do usuario",
+		"allowShowVillains": "Permitir consultar o listado dos villanos"
 	},
 	"tournament": {
 		"title": "Torneo",
@@ -64,5 +72,8 @@
 		"new": "Novo",
 		"load": "Abrir",
 		"save": "Gardar"
+	},
+	"villains": {
+		"title": "Listado dos villanos"
 	}
 }
