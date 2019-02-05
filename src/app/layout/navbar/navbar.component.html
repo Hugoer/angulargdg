@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button (click)="openMenu()" class="menu__button" role="button" name="openmenu">
+    <button mat-icon-button (click)="openMenu()" class="menu__button" role="button" name="openmenu" aria-label="Open side menu">
         <mat-icon mat-list-icon>menu</mat-icon>
     </button>
     <span class="navbar__title" [ngClass]="{'navbar__title--unsaved' : showTournamentDirty}" matTooltip="{{unSavedTooltip}}"
         [matTooltipPosition]="'above'"></span>
 
     <ng-container *ngIf="showMenu">
-        <button mat-icon-button [matMenuTriggerFor]="menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open toolbar menu">
             <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">

@@ -28,7 +28,8 @@
                             "src/favicon.ico",
                             "src/assets",
                             "src/manifest.json",
-                            "src/i18n"
+                            "src/i18n",
+                            "src/robots.txt"
                         ],
                         "styles": [
                             "src/assets/fonts/material-icons.css",

@@ -18,7 +18,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment } from '@environment/environment';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -56,7 +56,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
         {
             provide: ErrorHandler,
             useClass: ErrorsHandler,
-        }
+        },
+        { provide: FirestoreSettingsToken, useValue: {} }
     ]
 })
 export class CoreModule { }
