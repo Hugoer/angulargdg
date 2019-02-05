@@ -54,12 +54,22 @@ export class AdminRouteAccessService implements CanActivate, CanLoad {
                                     resolve(true);
                                 } else {
                                     resolve(false);
-                                    this.redirect();
+                                    this.snackBar.open(this.translateService.instant('angulargdg.http.403'), null, {
+                                        duration: environment.toast.duration,
+                                        verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
+                                        horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
+                                    });
+                                    this.router.navigate(['']);
                                 }
                             });
                     } else {
                         resolve(false);
-                        this.redirect();
+                        this.snackBar.open(this.translateService.instant('angulargdg.http.401'), null, {
+                            duration: environment.toast.duration,
+                            verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
+                            horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
+                        });
+                        this.router.navigate(['']);
                     }
                 });
         });

@@ -10,6 +10,7 @@ import { ConfirmDialogComponent } from '@app/components/confirm/confirm.componen
 import { Observable, Subject } from 'rxjs';
 import { UserService } from '@app/core/user.service';
 import { takeUntil, take } from 'rxjs/operators';
+import { AppLanguageService } from '@app/core/language/language.service';
 
 @Component({
     selector: 'app-menu',
@@ -32,7 +33,7 @@ export class MenuComponent implements OnInit, OnDestroy {
         private router: Router,
         public dialog: MatDialog,
         private afAuth: AngularFireAuth,
-
+        private languageService: AppLanguageService,
         private userService: UserService,
     ) {
 
@@ -41,6 +42,13 @@ export class MenuComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this._destroyed$))
             .subscribe((userFb: firebase.User) => {
                 if (!!userFb) {
+                    this.userService.getUser(userFb.uid)
+                        .pipe(take(1))
+                        .subscribe((doc) => {
+                            const langKey = doc.data().langKey;
+                            this.languageService.changeLanguage(langKey);
+                        });
+
                     this.userService.createUser(userFb);
                     this.userLogged = true;
                 } else {

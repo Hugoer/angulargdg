@@ -15,13 +15,13 @@ export class AppLanguageService {
     }
 
     changeLanguage(languageKey: string) {
-        // const languageStorage = this.localStorage.retrieve('userLanguage');
-        // if ((!!languageStorage && languageStorage !== languageKey) || (!languageStorage)) {
-        console.log('changeLanguage: ' + languageKey);
-        this.localStorage.store('userLanguage', languageKey);
-        this.translateService.use(languageKey);
-        moment.locale(languageKey);
-        // }
+        const languageStorage = this.localStorage.retrieve('userLanguage');
+        if ((!!languageStorage && languageStorage !== languageKey) || (!languageStorage)) {
+            console.log('changeLanguage: ' + languageKey);
+            this.localStorage.store('userLanguage', languageKey);
+            this.translateService.use(languageKey);
+            moment.locale(languageKey);
+        }
     }
 
     getCurrent(): string {
