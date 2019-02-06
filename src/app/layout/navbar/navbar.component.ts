@@ -91,7 +91,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-
+        this.titleService.unsubscribeOnRouting();
     }
 
     private observeMapState() {
@@ -120,7 +120,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         const route = this.getRouteObject(this.router.routerState.snapshot.root);
         if (!!route && !!route.data) {
             this.showMenu = !!route.data.showNavbarMenu;
-            // this.showSelectIconEnabled = false; // Por defecto, al cargar una ruta nueva, no permitimos mover objetos
             this.cd.markForCheck();
             switch (true) {
                 // Cargamos el mapa nuevo

@@ -3,11 +3,14 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Injectable()
 export class AppTitleService {
     rendererHtmlTag: Renderer2 = null;
     private actualTitle: string = null;
+
+    routingSubscription: Subscription;
 
     constructor(
         private translateService: TranslateService,
@@ -80,7 +83,7 @@ export class AppTitleService {
     }
 
     updateOnRouting() {
-        this.router.events.subscribe((event) => {
+        this.routingSubscription = this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
                 const titleKey = this.getPageTitle(this.router.routerState.snapshot.root);
                 this.translateService.get(titleKey).subscribe((title) => {
@@ -92,5 +95,10 @@ export class AppTitleService {
         });
     }
 
+    unsubscribeOnRouting() {
+        if (!!this.routingSubscription) {
+            this.routingSubscription.unsubscribe();
+        }
+    }
 
 }
