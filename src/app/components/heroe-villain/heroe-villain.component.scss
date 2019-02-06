@@ -1,11 +1,17 @@
 :host {
 	.hero-villain__card {
-		max-width: 300px;
+		@media (max-width: 767px) {
+			max-width: 100vw;
+		}
+		@media (min-width: 768px) {
+			max-width: 300px;
+		}
 	}
 	.mat-card-image {
 		display: block;
 
 		width: 300px;
+		max-width: calc( 100vw - 95px);
 		margin-right: auto;
 		margin-left: auto;
 	}
