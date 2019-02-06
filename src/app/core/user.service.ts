@@ -33,13 +33,13 @@ export class UserService {
         return userDoc.get().pipe(take(1));
     }
 
-    createUser(userFb: firebase.User) {
-        const userDoc: AngularFirestoreDocument<IUser> = this.afs.doc<IUser>(`user/${userFb.uid}`);
-        userDoc
-            .get()
-            .pipe(take(1))
-            .subscribe((docSnapshot) => {
-                if (!docSnapshot.exists) {
+    createUser(userFb: firebase.User): Promise<IUser> {
+        return new Promise<IUser>((resolve, reject) => {
+            const userDoc: AngularFirestoreDocument<IUser> = this.afs.doc<IUser>(`user/${userFb.uid}`);
+            userDoc
+                .get()
+                .pipe(take(1))
+                .subscribe((docSnapshot) => {
                     const user: IUser = {
                         displayName: userFb.displayName,
                         email: userFb.email,
@@ -47,9 +47,20 @@ export class UserService {
                         langKey: environment.defaultI18nLang,
                         uid: userFb.uid
                     }
-                    userDoc.set(user);
-                }
-            });
+                    if (!docSnapshot.exists) {
+
+                        userDoc.set(user)
+                            .then(() => {
+                                resolve(user);
+                            })
+                            .catch((err) => {
+                                reject(err);
+                            });
+                    } else {
+                        resolve(user);
+                    }
+                });
+        });
     }
 
 }

@@ -42,14 +42,11 @@ export class MenuComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this._destroyed$))
             .subscribe((userFb: firebase.User) => {
                 if (!!userFb) {
-                    this.userService.getUser(userFb.uid)
-                        .pipe(take(1))
-                        .subscribe((doc) => {
-                            const langKey = doc.data().langKey;
+                    this.userService.createUser(userFb)
+                        .then((user) => {
+                            const langKey = user.langKey;
                             this.languageService.changeLanguage(langKey);
                         });
-
-                    this.userService.createUser(userFb);
                     this.userLogged = true;
                 } else {
                     this.userLogged = false;
