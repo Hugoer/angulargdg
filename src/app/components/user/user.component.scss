@@ -1,0 +1,16 @@
+
+@media (max-width: 400px) {
+	.user__photo {
+		max-width: calc(100vw - 60px);
+		margin: 0 auto;
+	}
+
+	.user__uid {
+		overflow: hidden;
+
+		max-width: calc(100vw - 90px);
+
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+}

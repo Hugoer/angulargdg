@@ -3,13 +3,13 @@
         <mat-card-title>{{_user.displayName}}</mat-card-title>
         <mat-card-subtitle>{{_user.email}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="_user.photoURL" alt="User profile {{_user.displayName}}">
+    <img mat-card-image class="user__photo" [src]="_user.photoURL" alt="User profile {{_user.displayName}}">
     <mat-card-content>
 
         <mat-list>
 
             <h3 mat-subheader>{{'profile.uid' | translate}}</h3>
-            <mat-list-item>
+            <mat-list-item class="user__uid">
                 <mat-icon mat-list-icon>perm_identity</mat-icon>
                 <h4 mat-line>{{_user.uid}}</h4>
             </mat-list-item>
@@ -36,7 +36,8 @@
 
             <mat-list-item>
 
-                <mat-slide-toggle [color]="'secondary'" [checked]="_user.allowShowVillains" (change)="changeAllowShowVillains($event)">
+                <mat-slide-toggle [color]="'secondary'" [checked]="_user.allowShowVillains"
+                    (change)="changeAllowShowVillains($event)">
                     {{'profile.allowShowVillains' | translate}}
                 </mat-slide-toggle>
 

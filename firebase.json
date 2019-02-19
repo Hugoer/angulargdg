@@ -30,6 +30,24 @@
                         "value": "max-age=31536000"
                     }
                 ]
+            },
+            {
+                "source": "assets/*.@(jpg|png)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=31536000"
+                    }
+                ]
+            },
+            {
+                "source": "i18n/*.@(json)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=31536000"
+                    }
+                ]
             }
         ]
     }

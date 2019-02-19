@@ -64,7 +64,7 @@
 	"profile": {
 		"title": "Perfil del usuario",
 		"uid": "Identificador del usuario",
-		"allowShowVillains": "Permitir consultar el listado de los villanos"
+		"allowShowVillains": "Consultar villanos"
 	},
 	"tournament": {
 		"title": "Torneo",

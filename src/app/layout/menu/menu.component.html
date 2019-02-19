@@ -22,7 +22,8 @@
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <a [routerLink]="['/']" class="gdg__item" [routerLinkActive]="['gdg__item--active']" [routerLinkActiveOptions]="{exact: true}">
+    <a [routerLink]="['/']" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
+        [routerLinkActiveOptions]="{exact: true}">
         <mat-list-item appClosemenu>
             <mat-icon mat-list-icon>layers</mat-icon>
             <span mat-line>{{'main.index' | translate}}</span>
@@ -37,14 +38,14 @@
 
         <a [routerLink]="['/heroes']" class="gdg__item" [routerLinkActive]="['gdg__item--active']">
             <mat-list-item appClosemenu>
-                <mat-icon mat-list-icon>person</mat-icon>
+                <mat-icon mat-list-icon svgIcon="heroe"></mat-icon>
                 <span mat-line>{{'global.menu.heroe.title' | translate}}</span>
             </mat-list-item>
         </a>
 
         <a [routerLink]="['/villains']" class="gdg__item" [routerLinkActive]="['gdg__item--active']">
             <mat-list-item appClosemenu>
-                <mat-icon mat-list-icon>person</mat-icon>
+                <mat-icon mat-list-icon svgIcon="villain"></mat-icon>
                 <span mat-line>{{'global.menu.villain.title' | translate}}</span>
             </mat-list-item>
         </a>
