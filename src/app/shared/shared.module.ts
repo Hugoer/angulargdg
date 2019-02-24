@@ -5,7 +5,6 @@ import { MomentModule } from 'angular2-moment';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { GlobalReduceModule } from '@app/redux/global.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -14,7 +13,6 @@ import { TranslateModule } from '@ngx-translate/core';
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,
-        GlobalReduceModule,
         RouterModule,
         MomentModule,
     ],
@@ -27,7 +25,6 @@ import { TranslateModule } from '@ngx-translate/core';
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,
-        GlobalReduceModule,
         RouterModule,
         MomentModule,
     ]

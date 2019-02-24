@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 
-import { GDGState } from '@app/redux/global.reducer';
 import { appEventManager } from '@app/core/handlers/eventmanager.service';
 
 import { AppTitleService } from '@app/core/language/language.helper';
@@ -61,11 +60,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     isLoading = false;
 
     constructor(
-        private store: Store<GDGState>,
         private cd: ChangeDetectorRef,
         private eventManager: appEventManager,
         private router: Router,
-        private translateService: TranslateService,
         private titleService: AppTitleService,
     ) {
 
@@ -87,25 +84,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.observeMapState();
     }
 
     ngOnDestroy() {
         this.titleService.unsubscribeOnRouting();
-    }
-
-    private observeMapState() {
-
-        // this.obsMapIsDirty = this.store.select('gdg', 'tournaments', 'isDirty')
-        //     .subscribe((isDirty: boolean) => {
-        //         this.showTournamentDirty = isDirty;
-        //         this.actions.find((action) => {
-        //             return (action.action === EnumMapActions.RESET);
-        //         }).enabled = isDirty;
-        //         this.unSavedTooltip = this.showTournamentDirty ? this.translateService.instant('tournament.dirtyadvice') : null;
-        //         this.cd.markForCheck();
-        //     });
-
     }
 
     private getRouteObject(routeSnapshot: ActivatedRouteSnapshot): any {
