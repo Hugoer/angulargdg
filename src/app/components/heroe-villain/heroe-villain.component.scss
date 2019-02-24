@@ -7,12 +7,20 @@
 			max-width: 300px;
 		}
 	}
-	.mat-card-image {
+	.hv__image {
 		display: block;
 
-		width: 300px;
-		max-width: calc( 100vw - 95px);
 		margin-right: auto;
 		margin-left: auto;
+
+		&:not(.hv__image--small) {
+			width: 300px;
+			max-width: calc( 100vw - 95px);
+		}
+		&.hv__image--small {
+			width: 75px;
+
+			border-radius: 100%;
+		}
 	}
 }

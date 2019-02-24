@@ -1,0 +1,4 @@
+<ng-container *ngFor="let heroe of heroes$ | async;trackBy: trackByFn">
+    <heroe-villain [simple]="true" [character]="heroe">
+    </heroe-villain>
+</ng-container>

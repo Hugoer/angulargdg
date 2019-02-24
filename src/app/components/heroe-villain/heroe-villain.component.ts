@@ -10,8 +10,10 @@ import { IHeroVillain } from './hero-villain.model';
 export class HeroeVillainComponent {
 
     @Input() character: IHeroVillain;
+    @Input() simple: boolean = false;
 
     constructor(
-    ) { }
+    ) {
+    }
 
 }
