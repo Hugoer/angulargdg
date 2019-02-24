@@ -1,7 +1,6 @@
 {
     "tournament": {
-        "title": "Torneo",
-        "dirtyadvice": "El torneo tiene cambios pendientes de guardar",
+        "title": "Personajes Marvel",
         "new": "Nuevo",
         "load": "Abrir",
         "save": "Guardar"
