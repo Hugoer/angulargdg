@@ -14,6 +14,7 @@ export class HeroeVillainComponent {
 
     constructor(
     ) {
+        console.log('constructor HeroeVillainComponent');
     }
 
 }

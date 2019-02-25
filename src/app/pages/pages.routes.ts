@@ -4,8 +4,19 @@ import { TournamentComponent } from '@app/pages/tournament/tournament.component'
 import { ProfileComponent } from './profile/profile.component';
 import { TournamentHeroListComponent } from '@app/components/tournament-hero-list/tournament-hero-list.component';
 import { TournamentVillainListComponent } from '@app/components/tournament-villain-list/tournament-villain-list.component';
+import { HeroeVillainComponent } from '@app/components/heroe-villain/heroe-villain.component';
 
 const routes: Routes = [
+    // {
+    //     path: 'heroe',
+    //     component: TournamentComponent,
+    //     children: [
+    //         {
+    //             path: ':uid',
+    //             component: HeroeVillainComponent,
+    //         }
+    //     ]
+    // },
     {
         path: '',
         component: TournamentComponent,
@@ -14,9 +25,10 @@ const routes: Routes = [
             pageTitle: 'tournament.title'
         },
         children: [
+
             {
                 path: '',
-                outlet: 'hero',
+                outlet: 'heroe',
                 component: TournamentHeroListComponent,
             },
             {
@@ -26,7 +38,6 @@ const routes: Routes = [
             },
         ]
     },
-
     {
         path: 'profile/:id',
         component: ProfileComponent,
