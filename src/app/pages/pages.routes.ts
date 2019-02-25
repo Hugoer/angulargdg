@@ -6,37 +6,43 @@ import { TournamentHeroListComponent } from '@app/components/tournament-hero-lis
 import { TournamentVillainListComponent } from '@app/components/tournament-villain-list/tournament-villain-list.component';
 import { HeroeVillainComponent } from '@app/components/heroe-villain/heroe-villain.component';
 
+// const routes: Routes = [
+//     { path: '', redirectTo: 'home', pathMatch: 'full' },
+//     { path: 'home', component: HomeComponent },
+//     {
+//         path: 'speakers', component: SpeakersComponent,
+//         children: [
+//             { path: 'speakersList', component: SpeakersListComponent, outlet: 'list' },
+//             { path: ':id', component: BioComponent, outlet: 'bio' }
+//         ]
+//     }
+// ];
+
 const routes: Routes = [
-    // {
-    //     path: 'heroe',
-    //     component: TournamentComponent,
-    //     children: [
-    //         {
-    //             path: ':uid',
-    //             component: HeroeVillainComponent,
-    //         }
-    //     ]
-    // },
     {
-        path: '',
+        path: 'characters',
         component: TournamentComponent,
         data: {
             showNavbarMenu: true,
             pageTitle: 'tournament.title'
         },
         children: [
-
             {
-                path: '',
-                outlet: 'heroe',
+                path: 'list',
                 component: TournamentHeroListComponent,
+                outlet: 'heroe'
             },
             {
-                path: '',
-                outlet: 'villain',
-                component: TournamentVillainListComponent,
+                path: ':id',
+                component: HeroeVillainComponent,
+                outlet: 'heroedetail'
             },
         ]
+    },
+    {
+        path: '',
+        redirectTo: 'characters',
+        pathMatch: 'full'
     },
     {
         path: 'profile/:id',

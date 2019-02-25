@@ -1,7 +1,7 @@
 <ng-container *ngFor="let heroe of heroes$ | async;trackBy: trackByFn">
-    <!-- <a [routerLink]="['/heroe/',heroe.uid]"> -->
-    <!-- <a [routerLink]="['/characters', {outlets: {'characters': [hero.uid]}}]"> -->
-    <heroe-villain [simple]="true" [character]="heroe">
-    </heroe-villain>
-    <!-- </a> -->
+    <!-- <a [routerLink]="['/characters', {outlets: {'herodetail': [heroe.uid]}}]"> -->
+    <div (click)="showBio(heroe.uid)">
+        <heroe-villain [simple]="true" [character]="heroe">
+        </heroe-villain>
+    </div>
 </ng-container>

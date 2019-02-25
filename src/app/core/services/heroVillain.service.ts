@@ -34,6 +34,32 @@ export class HeroVillainService {
             }));
     }
 
+    getHeroe(uid: string) {
+        return this.afs.collection<IHeroVillain>('heroe')
+            .valueChanges()
+            .pipe(take(1))
+            .pipe(map((heroes) => {
+                // return heroes.map((heroe) => {
+                //     const timeStamp = new Date(heroe.since.seconds * 1000);
+                //     return <IHeroVillain>{
+                //         ...heroe,
+                //         since: timeStamp,
+                //         type: 'heroe'.toString()
+                //     }
+                // });
+                return heroes.filter((heroe) => {
+                    if (heroe.uid === uid) {
+                        const timeStamp = new Date(heroe.since.seconds * 1000);
+                        return <IHeroVillain>{
+                            ...heroe,
+                            since: timeStamp,
+                            type: 'heroe'.toString()
+                        }
+                    }
+                })
+            }));
+    }
+
     getHeroes(): Observable<IHeroVillain[]> {
         return this.getCharacters('heroe');
     }

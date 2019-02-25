@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { IHeroVillain } from '@app/components/heroe-villain/hero-villain.model';
 import { Observable } from 'rxjs';
 import { HeroVillainService } from '@app/core/services/heroVillain.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tournament',
@@ -12,15 +13,15 @@ import { HeroVillainService } from '@app/core/services/heroVillain.service';
 export class TournamentComponent implements OnInit {
 
     heroes$: Observable<IHeroVillain[]>;
-    villains$: Observable<IHeroVillain[]>;
 
     constructor(
         private heroVillainService: HeroVillainService,
+        private router: Router,
     ) { }
 
     ngOnInit() {
         this.heroes$ = this.heroVillainService.getHeroes();
-        this.villains$ = this.heroVillainService.getVillains();
+        this.router.navigateByUrl('/characters/(heroe:list)');
     }
 
     trackByFn(index, item) {
