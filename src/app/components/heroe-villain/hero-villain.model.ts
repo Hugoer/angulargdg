@@ -1,4 +1,4 @@
-type HeroVillain = 'Hero' | 'Villain';
+type HeroVillain = 'Heroe' | 'Villain';
 
 export interface IHeroVillain {
     uid: string;

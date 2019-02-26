@@ -39,24 +39,11 @@ export class HeroVillainService {
             .valueChanges()
             .pipe(take(1))
             .pipe(map((heroes) => {
-                // return heroes.map((heroe) => {
-                //     const timeStamp = new Date(heroe.since.seconds * 1000);
-                //     return <IHeroVillain>{
-                //         ...heroe,
-                //         since: timeStamp,
-                //         type: 'heroe'.toString()
-                //     }
-                // });
                 return heroes.filter((heroe) => {
-                    if (heroe.uid === uid) {
-                        const timeStamp = new Date(heroe.since.seconds * 1000);
-                        return <IHeroVillain>{
-                            ...heroe,
-                            since: timeStamp,
-                            type: 'heroe'.toString()
-                        }
-                    }
-                })
+                    const timeStamp = new Date(heroe.since.seconds * 1000);
+                    heroe.since = timeStamp;
+                    return (heroe.uid === uid);
+                });
             }));
     }
 

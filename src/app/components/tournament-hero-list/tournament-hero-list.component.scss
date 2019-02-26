@@ -1,8 +1,14 @@
 :host {
+	display: flex;
+
+	flex-wrap: wrap;
 	heroe-villain {
-		display: block;
+		display: inline-block;
 
 		min-width: 220px;
 		margin: 15px;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }

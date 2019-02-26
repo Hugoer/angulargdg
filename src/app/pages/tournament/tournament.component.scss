@@ -3,3 +3,9 @@
 
 	flex-wrap: wrap;
 }
+
+:host {
+	display: block;
+
+	width: 100%;
+}

@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@a
 import { IHeroVillain } from './hero-villain.model';
 import { HeroVillainService } from '@app/core/services/heroVillain.service';
 import { ActivatedRoute } from '@angular/router';
-import { debug } from 'util';
 
 @Component({
     selector: 'heroe-villain',
