@@ -57,7 +57,7 @@ export class UserService {
                                 reject(err);
                             });
                     } else {
-                        resolve(user);
+                        resolve(null);
                     }
                 });
         });

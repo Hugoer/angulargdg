@@ -11,6 +11,7 @@ import { Observable, Subject } from 'rxjs';
 import { UserService } from '@app/core/user.service';
 import { takeUntil, take } from 'rxjs/operators';
 import { AppLanguageService } from '@app/core/language/language.service';
+import { IUser } from '@app/core/user.model';
 
 @Component({
     selector: 'app-menu',
@@ -44,8 +45,20 @@ export class MenuComponent implements OnInit, OnDestroy {
                 if (!!userFb) {
                     this.userService.createUser(userFb)
                         .then((user) => {
-                            const langKey = user.langKey;
-                            this.languageService.changeLanguage(langKey);
+                            if (!user) {
+                                this.userService.getUser(userFb.uid)
+                                    .pipe(take(1))
+                                    .subscribe((userRetrieved) => {
+                                        const _user = userRetrieved.data();
+                                        const langKey = _user.langKey;
+                                        this.languageService.changeLanguage(langKey);
+                                    });
+                            } else {
+                                // Si se ha creado justo ahora...
+                                const langKey = user.langKey;
+                                this.languageService.changeLanguage(langKey);
+                            }
+
                         });
                     this.userLogged = true;
                 } else {

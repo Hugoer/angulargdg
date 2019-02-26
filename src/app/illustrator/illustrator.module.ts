@@ -3,6 +3,7 @@ import { IllustratorRoutingModule } from './illustrator.routes';
 import { IllustratorComponent } from './illustrator/illustrator.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { SharedModule } from '@app/shared/shared.module';
 
 const MATERIAL_COMPONENTS_MODULES = [
     MatIconModule,
@@ -11,6 +12,7 @@ const MATERIAL_COMPONENTS_MODULES = [
 
 @NgModule({
     imports: [
+        SharedModule,
         IllustratorRoutingModule,
         MATERIAL_COMPONENTS_MODULES,
     ],
