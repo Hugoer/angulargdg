@@ -16,7 +16,7 @@ export class VillainListComponent {
     constructor(
         private heroVillainService: HeroVillainService,
     ) {
-        this.villains$ = this.heroVillainService.getHeroes();
+        this.villains$ = this.heroVillainService.getVillains();
 
     }
 
