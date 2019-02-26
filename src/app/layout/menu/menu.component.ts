@@ -101,7 +101,8 @@ export class MenuComponent implements OnInit, OnDestroy {
             .subscribe((result) => {
                 if (!!result) {
                     this.afAuth.auth.signOut();
-                    this.router.navigate(['']);
+                    // this.router.navigate(['']);
+                    this.router.navigateByUrl('characters/(heroe:list)');
                 }
             });
     }

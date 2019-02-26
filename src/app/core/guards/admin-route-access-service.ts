@@ -69,7 +69,8 @@ export class AdminRouteAccessService implements CanActivate, CanLoad {
                             verticalPosition: <MatSnackBarVerticalPosition>environment.toast.verticalPosition,
                             horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
                         });
-                        this.router.navigate(['']);
+                        // this.router.navigate(['']);
+                        this.router.navigateByUrl('characters/(heroe:list)');
                     }
                 });
         });

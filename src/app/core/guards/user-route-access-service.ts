@@ -40,7 +40,8 @@ export class UserRouteAccessService implements CanLoad, CanActivate {
                             horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
                         });
                         resolve(false);
-                        this.router.navigate(['']);
+                        // this.router.navigate(['']);
+                        this.router.navigateByUrl('characters/(heroe:list)');
                     }
                 });
         });
