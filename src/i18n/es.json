@@ -4,7 +4,7 @@
 		"desc": "Información"
 	},
 	"angulargdg": {
-		"title": "Bienvenido a 'Marvel Tournament App'",
+		"title": "Bienvenido a 'Marvel App'",
 		"yes": "sí",
 		"no": "No",
 		"ok": "Aceptar",
@@ -29,9 +29,6 @@
 			},
 			"villain": {
 				"title": "Villanos"
-			},
-			"tournament": {
-				"title": "Torneo"
 			}
 		},
 		"character": "Héroes / Villanos",
@@ -48,6 +45,10 @@
 	},
 	"heroes": {
 		"title": "Listado de los héroes"
+	},
+	"illustrator": {
+		"title": "Illustrator",
+		"thanks": "This has been possible thanks to Alberto's work"
 	},
 	"main": {
 		"index": "Marvel App",

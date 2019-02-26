@@ -29,7 +29,7 @@ export class AppTitleService {
         }
 
         this.translateService.get(titleKey).subscribe((title) => {
-            console.log('Actualizamos los títulos a: ' + title);
+            // console.log('Actualizamos los títulos a: ' + title);
             this.titleService.setTitle(title);
             this.actualTitle = title;
         });
@@ -38,7 +38,7 @@ export class AppTitleService {
     private init() {
         this.translateService.onLangChange
             .subscribe(() => {
-                console.log('Cambiamos de idioma: ' + this.translateService.currentLang);
+                // console.log('Cambiamos de idioma: ' + this.translateService.currentLang);
                 this.rendererHtmlTag.setAttribute(document.querySelector('html'), 'lang', this.translateService.currentLang);
                 const title = this.getPageTitle(this.router.routerState.snapshot.root);
                 this.updateTabTitle();

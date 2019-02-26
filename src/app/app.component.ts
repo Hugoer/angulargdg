@@ -23,6 +23,14 @@ export class AppComponent {
             `villain`,
             this.domSanitizer.bypassSecurityTrustResourceUrl(`./assets/VILLAIN3.svg`)
         );
+        this.matIconRegistry.addSvgIcon(
+            `instagram`,
+            this.domSanitizer.bypassSecurityTrustResourceUrl(`./assets/instagram.svg`)
+        );
+        this.matIconRegistry.addSvgIcon(
+            `twitter`,
+            this.domSanitizer.bypassSecurityTrustResourceUrl(`./assets/twitter.svg`)
+        );
 
         if (this.swUpdate.isEnabled) {
             swUpdate.checkForUpdate();

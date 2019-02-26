@@ -22,8 +22,7 @@
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <a [routerLink]="['/']" class="gdg__item" [routerLinkActive]="['gdg__item--active']"
-        [routerLinkActiveOptions]="{exact: true}">
+    <a [routerLink]="['/characters']" class="gdg__item" [routerLinkActive]="['gdg__item--active']">
         <mat-list-item appClosemenu>
             <mat-icon mat-list-icon>layers</mat-icon>
             <span mat-line>{{'main.index' | translate}}</span>
@@ -53,6 +52,13 @@
     </ng-container>
 
     <mat-divider class="gdg__side-divider"></mat-divider>
+
+    <a [routerLink]="['/illustrator']" class="gdg__item" [routerLinkActive]="['gdg__item--active']">
+        <mat-list-item appClosemenu>
+            <mat-icon mat-list-icon>brush</mat-icon>
+            <span mat-line>{{'illustrator.title' | translate}}</span>
+        </mat-list-item>
+    </a>
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 

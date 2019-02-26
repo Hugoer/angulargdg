@@ -19,7 +19,7 @@ export class HeroeVillainComponent {
         private heroService: HeroVillainService,
         private cd: ChangeDetectorRef,
     ) {
-        console.log('constructor HeroeVillainComponent');
+        // console.log('constructor HeroeVillainComponent');
         this.route.params.subscribe((params: { id: string }) => {
             if (!!params.id) {
                 this.heroService.getHeroe(params.id)

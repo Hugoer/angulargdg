@@ -1,6 +1,6 @@
 {
     "angulargdg": {
-        "title": "Benvido a 'Marvel Tournament App'",
+        "title": "Benvido a 'Marvel App'",
         "yes": "sí",
         "no": "No",
         "ok": "Aceptar",
@@ -25,9 +25,6 @@
             },
             "villain": {
                 "title": "Villanos"
-            },
-            "tournament": {
-                "title": "Torneo"
             }
         },
         "character": "Heroes / Villanos",

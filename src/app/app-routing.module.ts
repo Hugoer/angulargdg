@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { UserRouteAccessService } from '@app/core/guards/user-route-access-service';
 import { AdminRouteAccessService } from '@app/core/guards/admin-route-access-service';
 import { CustomPreloadingStrategy } from '@app/core/guards/preload-custom-strategy';
 import { environment } from '@environment/environment';
@@ -31,6 +30,15 @@ const routes: Routes = [
         // canActivate: [AdminRouteAccessService],
         data: {
             preload: false,
+            delay: false
+        }
+    },
+    {
+        path: 'illustrator',
+        component: HomeComponent,
+        loadChildren: './illustrator/illustrator.module#IllustratorModule',
+        data: {
+            preload: true,
             delay: false
         }
     },
