@@ -6,6 +6,7 @@
         "start": "gulp i18n &&  ng serve --open",
         "start:prod": "gulp i18n &&  ng serve --prod --aot --open",
         "build:prod": "gulp i18n && ng build --prod --aot --build-optimizer ",
+        "shell": "ng run angulargdg:app-shell ",
         "build:prod:stats": "gulp i18n && ng build --prod --aot --build-optimizer  --stats-json ",
         "bundle-report": "npm run build:prod:stats && webpack-bundle-analyzer dist/angulargdg/stats.json",
         "deploy": "npm run build:prod && firebase deploy",
