@@ -22,7 +22,8 @@
 
     <mat-divider class="gdg__side-divider"></mat-divider>
 
-    <a [routerLink]="['/characters']" class="gdg__item" [routerLinkActive]="['gdg__item--active']">
+    <a [routerLink]="['/characters',{outlets: {heroe: 'list'}}]" class="gdg__item"
+        [routerLinkActive]="['gdg__item--active']">
         <mat-list-item appClosemenu>
             <mat-icon mat-list-icon>layers</mat-icon>
             <span mat-line>{{'main.index' | translate}}</span>

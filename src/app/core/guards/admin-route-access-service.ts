@@ -70,7 +70,7 @@ export class AdminRouteAccessService implements CanActivate, CanLoad {
                             horizontalPosition: <MatSnackBarHorizontalPosition>environment.toast.horizontalPosition
                         });
                         // this.router.navigate(['']);
-                        this.router.navigateByUrl('characters/(heroe:list)');
+                        this.router.navigateByUrl('/characters/(heroe:list)');
                     }
                 });
         });

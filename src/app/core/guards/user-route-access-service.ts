@@ -41,7 +41,7 @@ export class UserRouteAccessService implements CanLoad, CanActivate {
                         });
                         resolve(false);
                         // this.router.navigate(['']);
-                        this.router.navigateByUrl('characters/(heroe:list)');
+                        this.router.navigateByUrl('/characters/(heroe:list)');
                     }
                 });
         });
