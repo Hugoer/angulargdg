@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { IUser } from '@app/core/user.model';
-import { UserService } from '@app/core/user.service';
+import { Subject } from 'rxjs';
+import { IUser } from '@app/core/services/user.model';
+import { UserService } from '@app/core/services/user.service';
 import { ActivatedRoute } from '@angular/router';
-import { map, take, takeUntil } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({

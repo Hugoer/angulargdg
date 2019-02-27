@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
-import { IUser } from '@app/core/user.model';
-import { Observable, Subject } from 'rxjs';
+import { IUser } from '@app/core/services/user.model';
+import { Subject } from 'rxjs';
 import { AppLanguageService } from '@app/core/language/language.service';
-import { UserService } from '@app/core/user.service';
+import { UserService } from '@app/core/services/user.service';
 import { takeUntil } from 'rxjs/operators';
 import { MatSlideToggleChange, MatSelectChange } from '@angular/material';
 

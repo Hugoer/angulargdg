@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '@app/core/user.model';
+import { IUser } from '@app/core/services/user.model';
 import { take } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { environment } from '@environment/environment';

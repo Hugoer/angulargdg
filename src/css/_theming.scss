@@ -102,9 +102,5 @@ $blue: (
 // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
 $gdg-app-primary: mat-palette($red);
 $gdg-app-accent: mat-palette($black);
-
-// The warn palette is optional (defaults to red).
 $gdg-app-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
 $gdg-app-theme: mat-light-theme($gdg-app-primary, $gdg-app-accent, $gdg-app-warn);

@@ -10,12 +10,12 @@ import {
 import { Observable } from 'rxjs';
 import { environment } from '@environment/environment';
 
-import { IUser } from '@app/core/user.model';
+import { IUser } from '@app/core/services/user.model';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { take } from 'rxjs/operators';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 
 @Injectable()
 export class AdminRouteAccessService implements CanActivate, CanLoad {

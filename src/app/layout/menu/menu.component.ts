@@ -8,10 +8,9 @@ import { auth } from 'firebase/app';
 
 import { ConfirmDialogComponent } from '@app/components/confirm/confirm.component';
 import { Observable, Subject } from 'rxjs';
-import { UserService } from '@app/core/user.service';
+import { UserService } from '@app/core/services/user.service';
 import { takeUntil, take } from 'rxjs/operators';
 import { AppLanguageService } from '@app/core/language/language.service';
-import { IUser } from '@app/core/user.model';
 
 @Component({
     selector: 'app-menu',
